@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Enter Verification Code - Admin | Kyusi Esports</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="../img/K.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <style>
+        .enter-pin-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .enter-pin-content {
+            flex: 1 0 auto;
+            padding: 20px 0;
+        }
+
+        .pin-input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 24px;
+            margin: 0 5px;
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+
+        .pin-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .resend-text {
+            color: #6B0000;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .card {
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="enter-pin-page">
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="login.html" class="navbar-brand ms-4 ms-lg-0">
+            <h1 class="mb-0 text-primary text-uppercase">
+                <img src="../img/logokyusiyu.jpg" alt="logo" style="width: 50px; height: 50px;">
+                <span class="text-white">Kyusi Esports</span>
+            </h1>
+        </a>
+    </nav>
+    <!-- Navbar End -->
+
+    <div class="enter-pin-content">
+        <div class="container mt-5 mb-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <h4 class="text-center mb-4" style="color: black;"> Enter Verification Code</h4>
+                            <p class="text-center mb-4" style="color: black;">We've sent a verification code to <span id="userEmail" class="fw-bold"></span></p>
+                            
+                            <form id="verifyPinForm" onsubmit="return handlePinVerification(event)">
+                                <div class="pin-container">
+                                    <input type="text" class="pin-input" maxlength="1" pattern="[0-9]" required>
+                                    <input type="text" class="pin-input" maxlength="1" pattern="[0-9]" required>
+                                    <input type="text" class="pin-input" maxlength="1" pattern="[0-9]" required>
+                                    <input type="text" class="pin-input" maxlength="1" pattern="[0-9]" required>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg" 
+                                        style="background-color: black; border: none;">
+                                        Verify Code
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center mt-4" style="color: black;">
+                                <p>Didn't receive the code? <span class="resend-text" onclick="resendCode()">Resend</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/wow/wow.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Template Javascript -->
+    <script src="../js/main.js"></script>
+
+    <script>
+        // Display user email from session storage
+        window.onload = function() {
+            const email = sessionStorage.getItem('resetEmail');
+            if (email) {
+                document.getElementById('userEmail').textContent = email;
+            }
+        }
+
+        // Handle pin input auto-focus
+        const pinInputs = document.querySelectorAll('.pin-input');
+        pinInputs.forEach((input, index) => {
+            input.addEventListener('input', function() {
+                if (this.value && index < pinInputs.length - 1) {
+                    pinInputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !this.value && index > 0) {
+                    pinInputs[index - 1].focus();
+                }
+            });
+        });
+
+        function handlePinVerification(event) {
+            event.preventDefault();
+            
+            // Get all pin inputs and combine them
+            const pinInputs = document.querySelectorAll('.pin-input');
+            const pin = Array.from(pinInputs).map(input => input.value).join('');
+            
+            // Verify pin (in a real app, this would be validated against a server)
+            if (pin.length === 4) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'PIN verified successfully',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Continue'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'enternewpass.html';
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Please enter a valid 4-digit PIN',
+                    icon: 'error',
+                    confirmButtonColor: '#d33'
+                });
+            }
+            
+            return false;
+        }
+
+        function resendCode() {
+            Swal.fire({
+                title: 'Code Resent!',
+                text: 'A new verification code has been sent to your email',
+                icon: 'success',
+                confirmButtonColor: '#3085d6'
+            });
+        }
+    </script>
+</body>
+</html>

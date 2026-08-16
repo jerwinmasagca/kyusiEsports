@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="img/logo/logo.png" rel="icon">
+  <title>KyusiEsports Admin</title>
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/ruang-admin.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../img/K.png" rel="icon">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <style>
+    /* Reset font settings */
+    #accordionSidebar * {
+      font-family: inherit !important;
+    }
+
+    /* Hamburger menu color */
+    .fa-bars {
+      color: white !important;
+    }
+
+    /* Super specific font weight overrides */
+    body #wrapper #accordionSidebar.sidebar-light .nav-item span {
+      font-weight: 900 !important;
+    }
+
+    body #wrapper #accordionSidebar.sidebar-light .sidebar-brand .sidebar-brand-text {
+      font-weight: 900 !important;
+    }
+
+    .sidebar-light .nav-item .nav-link span {
+      font-weight: 900 !important;
+    }
+
+    /* Override any potential external CSS */
+    .sidebar-light .nav-item span,
+    .sidebar-light .nav-link span,
+    .sidebar span,
+    .nav-item span,
+    .nav-link span {
+      font-weight: 900 !important;
+      font-family: inherit !important;
+    }
+
+    /* Active menu item color */
+    .nav-item.active span {
+      color: #FF0000 !important;
+    }
+
+    /* Dropdown styles */
+    .dropdown {
+      width: 100%;
+      max-width: 600px; /* Increased to fit longer text */
+    }
+
+    .dropdown-toggle {
+      width: 100%;
+      white-space: nowrap !important; /* Prevent word break on larger screens */
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 20px; /* Space for dropdown arrow */
+    }
+
+    .dropdown-menu {
+      width: 100%;
+      min-width: 100%;
+    }
+
+    .dropdown-item {
+      white-space: nowrap !important; /* Prevent word break on larger screens */
+    }
+
+    /* Add media query for small screens */
+    @media (max-width: 767.98px) {
+      .dropdown-toggle {
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+
+      .dropdown-item {
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+    }
+
+    /* Radio button styles */
+    .form-check-input {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-bottom: 0.5rem;
+      border: 2px solid black !important;
+      cursor: pointer;
+    }
+
+    .form-check-input:checked {
+      background-color: black !important;
+      border-color: black !important;
+    }
+
+    .form-check-input:focus {
+      box-shadow: none !important;
+      border-color: black !important;
+    }
+
+    .form-check {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .team-member-container {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .name-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .team-member-container h1 {
+      padding-right: 40px; /* Make space for the radio button */
+    }
+
+    .team-member-container h1,
+    .team-member-container h3 {
+      position: relative;
+      z-index: 1;
+    }
+
+    .team-member-container:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar-container" >
+      <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="background-color: black;">
+          <div class="sidebar-brand-icon">
+            <img src="../img/logokyusiyu.jpg">
+          </div>
+          <div class="sidebar-brand-text mx-3">Kyusi Esports</div>
+          <div class="d-md-none" style="position: absolute; right: 1rem;">
+            <span id="sidebarToggle" style="color: white; cursor: pointer; font-size: 20px; background: none;"></span>
+          </div>
+        </a>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item ">
+          <a class="nav-link" href="index.html">
+            <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+            <span style="color: black">Kyusi Esports Admin</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="users.html">
+            <img src="../img/users.png" alt="" srcset="" style="height: 40px;">
+            <span style="color: black">Users</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="announcement.html">
+            <img src="../img/announce.png" alt="" srcset="" style="height: 40px;">
+            <span style="color: black">Announcement</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="merch.html">
+            <img src="../img/merchi.png" alt="" srcset="" style="height: 40px;">
+            <span style="color: black">Merch</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="partnership.html">
+            <img src="../img/partner.png" alt="" srcset="" style="height: 40px;">
+            <span style="color: black">Partnership</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="team.html">
+            <img src="../img/teami.png" alt="" srcset="" style="height: 40px;">
+            <span style="color: black">Team</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="highlights.html">
+            <img src="../img/highli.png" alt="" srcset="" style="height: 40px;">
+            <span style="color: black">Highlights</span>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="report.html">
+            <img src="../img/reporti.png" alt="" srcset="" style="height: 40px;">
+            <span style="color: black">Report</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="feedback.html">
+            <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+            <span style="color: black">Feedback</span>
+          </a>
+        </li>
+        <hr class="sidebar-divider">
+        
+      </ul>
+    </div>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      
+      <!-- Topbar -->
+      <div class="topbar-container">
+        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" style="background-color: black;">
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="d-md-none fa fa-bars"></i>
+          </button>
+          <ul class="navbar-nav ml-auto">
+            <!-- Logout Icon (Dropdown) -->
+            <!-- Logout Icon -->
+            <li class="nav-item">
+              <a href="#" class="btn rounded-0 py-2 px-lg-1 me-2">
+                  <img src="img/profile-placeholder.png" alt="" class="rounded-circle" style="width: 35px; height: 35px;">
+              </a>
+              <a href="#" class="btn rounded-0 py-2 px-lg-1 me-4" id="logoutBtn">
+                  <img src="../img/logout.png" alt="Logout" class="w-75">
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+
+
+      <div class="container-fluid ms-md-5 my-5">
+          <div class="dropdown d-flex ">
+              <!-- Dropdown Button -->
+              <button class="btn dropdown-toggle py-4 " type="button" id="newsDropdown" data-bs-toggle="dropdown" 
+              aria-expanded="false" style="width: 300; color: black; border: 2px solid black; border-radius: 10px; font-size: 2rem; font-weight: bold;">
+              <img src="../img/lolicon.png" alt="" style="margin-right: 5px; width: 50px; height: 50px;">
+              LEAUGE OF LEGENDS
+              </button>
+      
+              <!-- Dropdown Menu -->
+              <ul class="dropdown-menu" aria-labelledby="newsDropdown">
+                  <li>
+                      <a class="dropdown-item  py-4" href="valoteam.html" style="font-size: 2rem; border: 2px solid black; border-radius: 10px; color: black; font-weight: bold;">
+                          <img src="../img/valoranticon.png" alt="" style="margin-right: 5px; width: 50px; height: 50px;">
+                          VALORANT
+                      </a>
+                  </li>
+                  <li>
+                      <a class="dropdown-item  py-4" href="codteam.html" style="font-size: 2rem; border: 2px solid black; border-radius: 10px; color: black; font-weight: bold;">
+                          <img src="../img/codmicon.png" alt="" style="margin-right: 5px; width: 50px; height: 50px;">
+                          CALL OF DUTY MOBILE
+                      </a>
+                  </li>
+                  <li>
+                      <a class="dropdown-item  py-4" href="mlteam.html" style="font-size: 2rem; border: 2px solid black; border-radius: 10px; color: black; font-weight: bold;">
+                          <img src="../img/mlicon.png" alt="" style="margin-right: 5px; width: 50px; height: 50px;">
+                          MOBILE LEGEND: BANG BANG
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+      <div class="container-fluid">
+          <div class="d-flex justify-content-end">
+              <button class="d-flex justify-content-end btn-warning mx-3 px-4 py-2 " data-bs-toggle="modal" data-bs-target="#addPostModal" style="font-size: 1.2rem; border-radius: 5px; background-color: #000000;">Add</button>
+              <button class="d-flex justify-content-end btn btn-danger me-3 px-4 py-2 delete-button"data-bs-toggle="modal" data-bs-target="#EditModal" style="font-size: 1.2rem; background-color: #000000;">Edit</button>
+              <button class="d-flex justify-content-end btn btn-danger px-4 py-2 delete-button" style="font-size: 1.2rem; background-color: #8C0402;">Delete</button>
+          </div>
+      </div>
+      <div class="container-fluid py-4" style="background-color: white;">
+          <div class="row justify-content-center"> <!-- Single row for both sections -->
+              <!-- Top Row (4 columns for large screens, 2 columns for medium screens and below) -->
+              <div class=" col-lg-3 col-md-6 col-12 mb-4"> <!-- Adjust spacing with mb-4 -->
+                  <div class="team-member-container p-2">
+                      <div class="name-container">
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="teamMemberRadio" id="carlos">
+                          </div>
+                      </div>
+                      <h1 style="color: black; margin: 0;">Carlos</h1>
+                      <h3 style="color: black;">Duelist</h3>
+                      <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+                  </div>
+              </div>
+              <div class=" col-lg-3 col-md-6 col-12 mb-4"> <!-- Adjust spacing with mb-4 -->
+                  <div class="team-member-container p-2">
+                      <div class="name-container">
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="teamMemberRadio" id="carlos">
+                          </div>
+                      </div>
+                      <h1 style="color: black; margin: 0;">Carlos</h1>
+                      <h3 style="color: black;">Initiator</h3>
+                      <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+                  </div>
+              </div>
+              <div class=" col-lg-3 col-md-6 col-12 mb-4"> <!-- Adjust spacing with mb-4 -->
+                  <div class="team-member-container p-2">
+                      <div class="name-container">
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="teamMemberRadio" id="carlos">
+                          </div>
+                      </div>
+                      <h1 style="color: black; margin: 0;">Carlos</h1>
+                      <h3 style="color: black;">Controller</h3>
+                      <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+                  </div>
+              </div>
+              <div class=" col-lg-3 col-md-6 col-12 mb-4"> <!-- Adjust spacing with mb-4 -->
+                  <div class="team-member-container p-2">
+                      <div class="name-container">
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="teamMemberRadio" id="carlos">
+                          </div>
+                      </div>
+                      <h1 style="color: black; margin: 0;">Carlos</h1>
+                      <h3 style="color: black;"> Sentinel</h3>
+                      <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+                  </div>
+              </div>
+      
+              <!-- Bottom Row (4 columns for large screens, 2 columns for medium screens and below) -->
+              <div class=" col-lg-3 col-md-6 col-12 mb-4"> <!-- Adjust spacing with mb-4 -->
+                  <div class="team-member-container p-2">
+                      <div class="name-container">
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="teamMemberRadio" id="carlos">
+                          </div>
+                      </div>
+                      <h1 style="color: black; margin: 0;">Carlos</h1>
+                      <h3 style="color: black;">Sentinel</h3>
+                      <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+                  </div>
+              </div>
+              <div class=" col-lg-3 col-md-6 col-12 mb-4"> <!-- Adjust spacing with mb-4 -->
+                  <div class="team-member-container p-2">
+                      <div class="name-container">
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="teamMemberRadio" id="carlos">
+                          </div>
+                      </div>
+                      <h1 style="color: black; margin: 0;">Carlos</h1>
+                      <h3 style="color: black;">Controller</h3>
+                      <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+                  </div>
+              </div>
+              <div class=" col-lg-3 col-md-6 col-12 mb-4"> <!-- Adjust spacing with mb-4 -->
+                  <div class="team-member-container p-2">
+                      <div class="name-container">
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="teamMemberRadio" id="carlos">
+                          </div>
+                      </div>
+                      <h1 style="color: black; margin: 0;">Carlos</h1>
+                      <h3 style="color: black;">Initiator</h3>
+                      <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+                  </div>
+              </div>
+              <div class=" col-lg-3 col-md-6 col-12 mb-4"> <!-- Adjust spacing with mb-4 -->
+                  <div class="team-member-container p-2">
+                      <div class="name-container">
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="teamMemberRadio" id="carlos">
+                          </div>
+                      </div>
+                      <h1 style="color: black; margin: 0;">Carlos</h1>
+                      <h3 style="color: black;">Controller</h3>
+                      <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+                  </div>
+              </div>
+          </div>
+      </div>
+              <!--modal-->
+              <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                  <div class="modal-content" style="background-color: black; color: white; border: none;">
+                    <div class="modal-header" style="justify-content: center; border: none;">
+                      <h2 class="modal-title mt-3 text-center" id="addPostModalLabel">ADD OTHER MEMBER FOR TEAM</h2>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color:white; position: absolute; right: 15px;"></button>
+                    </div>
+                    <div class="modal-body my-2" style="border: none;">
+                      <div class="row">
+                        <div class="col-md-8">
+                          <!-- Title input -->
+                          <div class="mb-3">
+                            <label for="postTitle" class="form-label" style="color: white; margin-bottom: 8px;">Stage name</label>
+                            <input type="text" class="form-control" id="postTitle" placeholder="" style="background-color: black; color: white; border-radius: 7px; width: 100%; max-width: 400px;">
+                          </div>
+                          <div class="mb-4">
+                            <label for="roleSelect" class="form-label" style="color: white; margin-bottom: 8px;">Role</label>
+                            <select class="form-select" id="roleSelect" style="background-color: black; color: white; border-radius: 7px; border: 1px solid #dee2e6; background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><path fill=%22white%22 d=%22M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z%22/></svg>');">
+                              <option value="" selected disabled>Select Role</option>
+                              <option value="captain">HEAD COACH</option>
+                              <option value="player">JUNGLE</option>
+                              <option value="coach">MID</option>
+                              <option value="manager">BOT</option>
+                              <option value="analyst">TOP</option>
+                            </select>
+                          </div>
+                          <!-- image upload -->
+                          <div class="d-flex justify-content-start">
+                            <label for="profileImageInput" class="d-flex flex-column" style="cursor: pointer;">
+                              <div class="bg-black text-white d-flex align-items-center justify-content-center" style="width: 200px; height: 180px;  border: 1px solid white;">
+                                  <img src="path/to/icon.png" alt="Add" style="width: 50px; height: 40px;">
+                              </div>
+                              <span class="mt-2" style="width: 200px; text-align: center;">Upload photo</span>
+                            </label>
+                            <input type="file" id="profileImageInput" class="d-none">
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="modal-footer mb-3 me-2" style="border: none;">
+                      <!-- Post button -->
+                      <button type="button" class="btn btn-light px-4" style="padding-top: 1px; padding-bottom: 1px; font-weight: bold;">Post</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--modal end-->
+        
+        <!--Edit modal-->
+                <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="editPostModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content" style="background-color: black; color: white; border: none;">
+                      <div class="modal-header" style="justify-content: center; border: none;">
+                        <h2 class="modal-title mt-3 text-center" id="editPostModalLabel">EDIT PROFILE FOR TEAM</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; right: 15px;"></button>
+                      </div>
+                      <div class="modal-body my-2" style="border: none;">
+                        <div class="row">
+                          <div class="col-md-8">
+                            <!-- Title input -->
+                            <div class="mb-3 d-flex align-items-start gap-2">
+                              <div style="flex: 1;">
+                                <label for="postTitle" class="form-label" style="color: white; margin-bottom: 8px;">Stage name</label>
+                                <input type="text" class="form-control" id="postTitle" placeholder="" style="background-color: black; color: white; border-radius: 7px; width: 100%;">
+                              </div>
+                              <img src="../img/editi.png" style="height: 30px; margin-top: 32px;" alt="">
+                            </div>
+                            <!-- Title input -->
+                            <div class="mb-4">
+                              <label for="roleSelect" class="form-label" style="color: white; margin-bottom: 8px;">Role</label>
+                              <select class="form-select" id="roleSelect" style="background-color: black; color: white; border-radius: 7px; border: 1px solid #dee2e6; background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><path fill=%22white%22 d=%22M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z%22/></svg>');">
+                                <option value="" selected disabled>Select Role</option>
+                                <option value="captain">HEAD COACH</option>
+                                <option value="player">JUNGLE</option>
+                                <option value="coach">MID</option>
+                                <option value="manager">BOT</option>
+                                <option value="analyst">TOP</option>
+                              </select>
+                            </div>
+                            <!-- image upload -->
+                            <div class="d-flex justify-content-start">
+                              <label for="profileImageInput" class="d-flex flex-column" style="cursor: pointer;">
+                                <div class="bg-black text-white d-flex align-items-center justify-content-center" style="width: 200px; height: 180px;  border: 1px solid white;">
+                                    <img src="path/to/icon.png" alt="Add" style="width: 50px; height: 40px;">
+                                </div>
+                                <span class="mt-2" style="width: 200px; text-align: center;">Upload photo</span>
+                              </label>
+                              <input type="file" id="profileImageInput" class="d-none">
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <div class="modal-footer mb-3 me-2" style="border: none;">
+                        <!-- Post button -->
+                        <button type="button" class="btn btn-light px-4" style="padding-top: 1px; padding-bottom: 1px; font-weight: bold;">Update Changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Edit modal end-->
+        
+            </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Handle delete button clicks
+          document.querySelectorAll('button[style*="background-color: #8C0402"]').forEach(button => {
+              button.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  
+                  const selectedTeamMember = document.querySelector('input[name="teamMemberRadio"]:checked');
+                  
+                  if (!selectedTeamMember) {
+                      // Show warning if no team member is selected
+                      Swal.fire({
+                          title: 'No Team Member Selected',
+                          text: 'Please select a team member to delete first.',
+                          icon: 'warning',
+                          confirmButtonColor: '#000',
+                      });
+                      return;
+                  }
+                  
+                  const card = selectedTeamMember.closest('.col');
+                  
+                  Swal.fire({
+                      title: 'Are you sure?',
+                      text: "You won't be able to revert this!",
+                      icon: 'warning',
+                      iconColor: '#8C0402',
+                      showCancelButton: true,
+                      confirmButtonColor: '#000000',
+                      cancelButtonColor: '#8C0402',
+                      confirmButtonText: 'Yes, delete it!'
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          // Here you would typically make an API call to delete the team member
+                          // For now, we'll just remove the card from the page
+                          card.remove();
+                          
+                          Swal.fire({
+                              title: 'Deleted!',
+                              text: 'Team member has been deleted.',
+                              icon: 'success',
+                              confirmButtonColor: '#000000'
+                          });
+                      }
+                  });
+              });
+          });
+      });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the post/add button (adjust the selector based on your button's ID)
+        const postButton = document.querySelector('.btn-light.px-4') || document.getElementById('postButton');
+        
+        if (postButton) {
+            postButton.addEventListener('click', function() {
+                // Get the form fields - adjust these based on your form's input IDs
+                const title = document.getElementById('postTitle')?.value || '';
+                const content = document.getElementById('postContent')?.value || '';
+                const requiredFields = document.querySelectorAll('[required]');
+                let hasEmptyFields = false;
+
+                // Check if any required fields are empty
+                requiredFields.forEach(field => {
+                    if (!field.value) {
+                        hasEmptyFields = true;
+                    }
+                });
+
+                if (hasEmptyFields) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please fill in all required fields!',
+                        confirmButtonColor: '#000'
+                    });
+                    return;
+                }
+
+                Swal.fire({
+                    title: 'Add New Item?',
+                    text: "Are you sure you want to add this item?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#000',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, add it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: 'Added!',
+                            text: 'Your item has been added successfully.',
+                            icon: 'success',
+                            confirmButtonColor: '#000'
+                        }).then(() => {
+                            // Clear form and close modal
+                            const form = document.querySelector('form');
+                            if (form) form.reset();
+                            
+                            // Reset any image previews
+                            const preview = document.getElementById('imagePreview');
+                            if (preview) {
+                                preview.src = '';
+                                preview.style.display = 'none';
+                            }
+                            
+                            // Close the modal
+                            const closeButton = document.querySelector('#addPostModal .btn-close');
+                            if (closeButton) closeButton.click();
+                        });
+                    }
+                });
+            });
+        }
+    });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Get the update changes button
+      const updateButton = document.querySelector('#EditModal .btn-light.px-4');
+      
+      if (updateButton) {
+          updateButton.addEventListener('click', function() {
+              // Get the form fields
+              const stageName = document.querySelector('#EditModal #postTitle')?.value || '';
+              const role = document.querySelector('#EditModal #roleSelect')?.value || '';
+              const requiredFields = document.querySelectorAll('#EditModal [required]');
+              let hasEmptyFields = false;
+
+              // Check if any required fields are empty
+              requiredFields.forEach(field => {
+                  if (!field.value) {
+                      hasEmptyFields = true;
+                  }
+              });
+
+              if (hasEmptyFields) {
+                  Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'Please fill in all required fields!',
+                      confirmButtonColor: '#000'
+                  });
+                  return;
+              }
+
+              Swal.fire({
+                  title: 'Save Changes?',
+                  text: "Are you sure you want to update this profile?",
+                  icon: 'question',
+                  showCancelButton: true,
+                  confirmButtonColor: '#000',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, update it!'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      Swal.fire({
+                          title: 'Updated!',
+                          text: 'Profile has been updated successfully.',
+                          icon: 'success',
+                          confirmButtonColor: '#000'
+                      }).then(() => {
+                          // Reset any image previews
+                          const preview = document.querySelector('#EditModal #profileImageInput');
+                          if (preview) {
+                              preview.value = '';
+                          }
+                          
+                          // Close the modal
+                          const closeButton = document.querySelector('#EditModal .btn-close');
+                          if (closeButton) closeButton.click();
+                      });
+                  }
+              });
+          });
+      }
+  });
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#sidebarToggle").on('click', function(e) {
+        e.preventDefault();
+        $(".sidebar-container").toggleClass('toggled');
+      });
+    });
+  </script>
+  <script>
+    document.getElementById('logoutBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Ready to Leave?',
+            text: "Are you sure you want to logout?",
+            icon: 'warning',
+            iconColor: '#d33',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, logout!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/login.html';
+            }
+        });
+    });
+</script>
+</html>

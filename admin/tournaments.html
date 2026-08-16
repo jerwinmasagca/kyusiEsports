@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="img/logo/logo.png" rel="icon">
+  <title>KyusiEsports Admin</title>
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/ruang-admin.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../img/K.png" rel="icon">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <style>
+    /* Reset font settings */
+    #accordionSidebar * {
+      font-family: inherit !important;
+    }
+
+    /* Hamburger menu color */
+    .fa-bars {
+      color: white !important;
+    }
+
+    /* Super specific font weight overrides */
+    body #wrapper #accordionSidebar.sidebar-light .nav-item span {
+      font-weight: 900 !important;
+    }
+
+    body #wrapper #accordionSidebar.sidebar-light .sidebar-brand .sidebar-brand-text {
+      font-weight: 900 !important;
+    }
+
+    .sidebar-light .nav-item .nav-link span {
+      font-weight: 900 !important;
+    }
+
+    /* Override any potential external CSS */
+    .sidebar-light .nav-item span,
+    .sidebar-light .nav-link span,
+    .sidebar span,
+    .nav-item span,
+    .nav-link span {
+      font-weight: 900 !important;
+      font-family: inherit !important;
+    }
+
+    /* Active menu item color */
+    .nav-item.active span {
+      color: #FF0000 !important;
+    }
+
+    /* Table and card styles */
+    .table-container table td,
+    .table-container table th {
+      color: black !important;
+    }
+  
+    .table-container .btn-warning,
+    .table-container .btn-danger {
+      color: white;
+    }
+
+    .table-container table thead {
+      background-color: #B7B7B7;
+    }
+
+    .form-check-input {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-bottom: 0.5rem;
+      border: 2px solid black !important;
+      cursor: pointer;
+    }
+
+    .form-check-input:checked {
+      background-color: black !important;
+      border-color: black !important;
+    }
+
+    .form-check-input:focus {
+      box-shadow: none !important;
+      border-color: black !important;
+    }
+
+    .form-check {
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background-color: white !important;
+      color: black !important;
+    }
+    .card a {
+      color: black;
+    }
+    .card a:hover {
+      color: #7F7F7F;
+    }
+
+    .tournament-container {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .tournament-text {
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+
+  #postTitle::placeholder,
+  #postContent::placeholder,
+  #capsuleText::placeholder {
+    color: white;
+    opacity: 1; /* Ensures visibility */
+  }
+
+  .dropdown-item-admin {
+    white-space: nowrap !important;  /* Prevent word break on larger screens */
+    color: black !important;  /* Force black text color */
+  }
+
+  @media (max-width: 767.98px) {
+    .dropdown-item-admin {
+      white-space: normal !important;
+      word-wrap: break-word !important;
+      word-break: break-word !important;
+    }
+  }
+  </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar-container" >
+        <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="background-color: black;">
+            <div class="sidebar-brand-icon">
+              <img src="../img/logokyusiyu.jpg">
+            </div>
+            <div class="sidebar-brand-text mx-3">Kyusi Esports</div>
+          </a>
+          <hr class="sidebar-divider my-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Kyusi Esports Admin</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="users.html">
+              <img src="../img/users.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Users</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="announcement.html">
+              <img src="../img/announce.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Announcement</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="merch.html">
+              <img src="../img/merchi.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Merch</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="partnership.html">
+              <img src="../img/partner.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Partnership</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="team.html">
+              <img src="../img/teami.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Team</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="highlights.html">
+              <img src="../img/highli.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Highlights</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="report.html">
+              <img src="../img/reporti.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Report</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="feedback.html">
+              <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Feedback</span>
+            </a>
+          </li>
+          <hr class="sidebar-divider">
+        </ul>
+      </div>
+  
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        
+        <!-- Topbar -->
+        <div class="topbar-container">
+          <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" style="background-color: black;">
+            <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+              <i class="d-md-none fa fa-bars"></i>
+            </button>
+            <ul class="navbar-nav ml-auto">
+              <!-- Logout Icon (Dropdown) -->
+<!-- Logout Icon -->
+<li class="nav-item">
+  <a href="#" class="btn rounded-0 py-2 px-lg-1 me-2">
+      <img src="img/profile-placeholder.png" alt="" class="rounded-circle" style="width: 35px; height: 35px;">
+  </a>
+  <a href="#" class="btn rounded-0 py-2 px-lg-1 me-4" id="logoutBtn">
+      <img src="../img/logout.png" alt="Logout" class="w-75">
+  </a>
+</li>
+            </ul>
+          </nav>
+        </div>
+
+
+        <!-- Main Content -->
+        <div class="container-fluid mb-5">
+            <div class="dropdown d-flex justify-content-center">
+                <!-- Dropdown Button -->
+                <button class="btn dropdown-toggle py-4 text-wrap" type="button" id="newsDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="width: 50%; color: black; border: 2px solid black; border-radius: 10px; font-size: 2rem; font-weight: bold; word-break: break-word;">
+                    TOURNAMENTS
+                </button>
+        
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu" aria-labelledby="newsDropdown" style="width: 50%; margin: 0 auto; padding: 0;">
+                    <li>
+                        <a class="dropdown-item text-center py-4" href="announcement.html" style="font-size: 2rem; border: 2px solid black; border-radius: 10px; color: black; font-weight: bold; overflow-wrap: break-word; word-break: break-all; white-space: normal;">
+                          NEWS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container-fluid">
+            <div class="d-flex justify-content-end">
+              <button class="d-flex justify-content-end btn-warning mx-3 px-4 py-2" 
+              style="font-size: 1.2rem; border-radius: 5px; background-color: #000000;" 
+              data-bs-toggle="modal" data-bs-target="#addPostModal">
+                Add
+              </button>
+              <button class="d-flex justify-content-end btn btn-danger px-4 py-2 me-md-5" style="font-size: 1.2rem; background-color: #8C0402;">Delete</button>
+           
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content" style="background-color: black; color: white; border: none;">
+              <div class="modal-header" style="justify-content: center; border: none;">
+                <h2 class="modal-title mt-3 text-center" id="addPostModalLabel">CREATE YOUR ANNOUNCEMENT</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; right: 15px;"></button>
+              </div>
+
+              <!-- Image upload -->
+<div class="mb-4 px-4" style="width: 100%; max-width: 500px; margin: 0 auto;">
+  <label for="imageUpload" class="form-label" style="color: white;">Upload Image</label>
+  <input type="file" class="form-control" id="imageUpload" accept="image/*" style="background-color: black; color: white; border-radius: 7px; width: 100%;">
+  <div class="mt-2 text-center">
+      <img id="imagePreview" src="" alt="" style="max-width: 200px; max-height: 150px; display: none; margin: 0 auto;">
+  </div>
+</div>
+              <div class="modal-body" style="border: none;">
+                <div class="row">
+                  <div class="col-md-8">
+                    <!-- Title input -->
+                    <div class="mb-3">
+                      <input type="text" class="form-control" id="postTitle" placeholder="Title (Required)" style="background-color: black; color: white; border-radius: 7px;">
+                    </div>
+                    
+                    <!-- Content input -->
+                    <div class="mb-3">
+                      <textarea class="form-control" id="postContent" rows="8" placeholder="Content (Required)" style="background-color: black; color: white; border-radius: 7px;"></textarea>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <div class="d-flex flex-column h-100 justify-content-end">
+                      <!-- Checkbox first -->
+                      <div>
+                        <div class="form-check d-flex align-items-center" style="gap: 5px;"> 
+                          <input type="checkbox" class="form-check-input" id="publishCheck" style="background-color: white; width: 15px; height: 15px;">
+                          <label class="form-check-label" for="publishCheck" style="color: white; font-size: 12px;">Include button in announcement</label>
+                        </div>
+                        
+                        
+                      </div>
+                      
+                      <!-- Capsule text second -->
+                      <div class="mb-3">
+                        <label for="capsuleText" class="form-label" style="color: white; font-size: 12px;">Destination URL</label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="capsuleText" 
+                               placeholder="" 
+                               style="background-color: black; color: white; border-radius: 50px; padding: 5px 15px; height: 25px; font-size: 12px;">
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer mb-3 me-2" style="border: none;">
+                <!-- Post button -->
+                <button type="button" class="btn btn-light px-4" id="postButton" style="padding-top: 1px; padding-bottom: 1px;">Post</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal end-->
+        
+        
+
+
+
+
+        <div class="container my-5">
+            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-3 g-4">
+                <!-- Card 1 -->
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="announcementRadio" id="announcement1">
+                    </div>
+                    <div class="card h-100 text-white wow fadeInUp" data-wow-delay="0.1s" style="background-color: black;">
+                        <a href="https://www.facebook.com/KyusiEsportsCommunity" target="_blank">
+                            <img src="../img/tiddles.png" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">Estudyante Esports : ThEE National Championships!</h5>
+                            <p class="card-text">After a series of intense matches and showcasing incredible teamwork and skill, they now advance to one of the most challenging stages of the competition.As the stakes rise, 
+                              KE Tiddles stands just steps away from the championship title, aiming to prove they have what it takes to go all the way!</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Card 2 -->
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="announcementRadio" id="announcement2">
+                    </div>
+                    <div class="card h-100 text-white wow fadeInUp" data-wow-delay="0.2s" style="background-color: black;">
+                        <a href="https://www.facebook.com/KyusiEsportsCommunity" target="_blank">
+                            <img src="../img/kings.png" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">CURRENT MATCH BETWEEN KE KRAKEN VS PNC</h5>
+                            <p class="card-text">KE Kraken faced a tough loss against PNC LENTE in a close 0-1 match, leaving fans questioning what lies ahead for the team. After a string of challenges, this latest defeat adds pressure as they work to find their rhythm.
+                              Will KE Kraken regroup and rally, proving their resilience, or is this the beginning of a tougher stretch? With determination and skill, the team’s next performance could be their chance to turn the tide and rise once again.</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Card 3 -->
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="announcementRadio" id="announcement3">
+                    </div>
+                    <div class="card h-100 text-white wow fadeInUp" data-wow-delay="0.3s" style="background-color: black;">
+                        <a href="https://www.facebook.com/KyusiEsportsCommunity" target="_blank">
+                            <img src="../img/lakas.png" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">UPCOMING INFINIX UNIVERSITY LEAGUE SEASON 2</h5>
+                            <p class="card-text">When the INFINIX UNIVERSITY LEAGUE SEASON 2 begins on October 30, 2024, at 9 PM, get ready for an exciting battle! The most brilliant brains and fiercest competitors from institutions throughout the region are expected to come together for this much awaited event. In this exciting tournament, KE Kraken, representing Quezon City University, is poised to take 
+                              center stage and demonstrate their #LakasSaLaro with #WOOOWwithInfinix at #InfinixUniversityLeagueS2.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Handle delete button clicks
+          const deleteButton = document.querySelector('button[style*="background-color: #8C0402"]');
+          deleteButton.addEventListener('click', function() {
+              const selectedAnnouncement = document.querySelector('input[name="announcementRadio"]:checked');
+              
+              if (!selectedAnnouncement) {
+                  // Show warning if no announcement is selected
+                  Swal.fire({
+                      title: 'No Announcement Selected',
+                      text: 'Please select an announcement to delete first.',
+                      icon: 'warning',
+                      confirmButtonColor: '#000',
+                  });
+                  return;
+              }
+
+              // If an announcement is selected, show confirmation dialog
+              Swal.fire({
+                  title: 'Delete Announcement?',
+                  text: 'Are you sure you want to delete this announcement?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  iconColor:'#8C0402',
+                  confirmButtonColor: '#000',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, delete it!'
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      // Here you can add your backend API call
+                      // const announcementId = selectedAnnouncement.id;
+                      // await fetch('/api/announcements/' + announcementId, { method: 'DELETE' });
+                      
+                      // Show success message
+                      Swal.fire({
+                          title: 'Deleted!',
+                          text: 'The announcement has been removed.',
+                          icon: 'success',
+                          confirmButtonColor: '#000'
+                      }).then(() => {
+                          // Remove the announcement card from the UI
+                          const cardToRemove = selectedAnnouncement.closest('.col');
+                          cardToRemove.remove();
+                      });
+                  }
+              });
+          });
+      });
+
+      // Image upload preview
+document.getElementById('imageUpload').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    const preview = document.getElementById('imagePreview');
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = '';
+        preview.style.display = 'none';
+    }
+});
+      // Handle post button clicks
+      document.getElementById('postButton').addEventListener('click', function() {
+        const title = document.getElementById('postTitle').value;
+        const content = document.getElementById('postContent').value;
+
+        if (!title || !content) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please fill in both title and content fields!',
+            confirmButtonColor: '#000'
+          });
+          return;
+        }
+
+        Swal.fire({
+          title: 'Post Announcement?',
+          text: "Are you sure you want to post this announcement?",
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#000',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, post it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: 'Posted!',
+              text: 'Your announcement has been posted successfully.',
+              icon: 'success',
+              confirmButtonColor: '#000'
+            }).then(() => {
+              // Clear form and close modal
+              document.getElementById('postTitle').value = '';
+              document.getElementById('postContent').value = '';
+              document.getElementById('capsuleText').value = '';
+              document.getElementById('publishCheck').checked = false;
+              document.querySelector('#addPostModal .btn-close').click();
+            });
+          }
+        });
+      });
+  </script>
+  </body>
+  <script>
+    document.getElementById('logoutBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Ready to Leave?',
+            text: "Are you sure you want to logout?",
+            icon: 'warning',
+            iconColor: '#d33',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, logout!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'login.html';
+            }
+        });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+</html>

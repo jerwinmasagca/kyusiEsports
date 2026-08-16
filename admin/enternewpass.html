@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>KyusiEsports Admin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link href="../img/K.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Oswald:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <style>
+        /* Reset font settings */
+        * {
+            font-family: inherit !important;
+        }
+
+        /* Super specific font weight overrides */
+        .sidebar-brand-text,
+        .nav-item span,
+        .nav-link span {
+            font-weight: 900 !important;
+            font-family: inherit !important;
+        }
+
+        .sidebar-brand-text {
+            font-size: 1.2rem !important;
+        }
+
+        .sidebar-brand-icon img {
+            width: 50px;
+            height: 50px;
+        }
+
+        input::placeholder {
+            color: #8C8C8C;
+        }
+
+        .carousel-img {
+            width: 100%;;
+            height: 1000px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .password-input {
+            position: relative;
+        }
+
+        .password-input .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6B0000;
+        }
+
+        .form-control {
+            position: relative;
+            z-index: 1;
+        }
+
+        .custom-input {
+            background-color: black;
+            color: black;
+            border-radius: 12px;
+        }
+
+        #inputPasswordLogin, #inputPasswordRegister {
+            border-radius: 12px; 
+        }
+
+        /* Add styles for labels and text */
+        .form-label, p {
+            color: black;
+        }
+    </style>
+</head>
+<body style="background-color: white;">
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="login.html" style="background-color: black; text-decoration: none; padding: 15px;">
+            <div class="sidebar-brand-icon">
+                <img src="../img/logokyusiyu.jpg" style="width: 50px; height: 50px;">
+            </div>
+            <div class="sidebar-brand-text mx-3" style="color: white; font-weight: 900 !important;">Kyusi Esports</div>
+            <div class="d-md-none" style="position: absolute; right: 1rem;">
+                <span id="sidebarToggle" style="color: white; cursor: pointer; font-size: 20px; background: none;"></span>
+            </div>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+        </div>
+    </nav>
+
+
+    <div class="new-pass-content">
+        <div class="container mt-5 mb-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <h4 class="text-center mb-4" style="color: black;">Enter New Password</h4>
+                            <form id="newPasswordForm" onsubmit="return handlePasswordChange(event)">
+                                <div class="mb-4">
+                                    <label for="newPassword" class="form-label">New Password</label>
+                                    <div class="password-input">
+                                        <input type="password" class="form-control" id="newPassword" required 
+                                            style="border: 2px solid black; padding: 12px; color: black;">
+                                        <i class="bi bi-eye-slash toggle-password" onclick="togglePassword('newPassword')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #6B0000; z-index: 10;"></i>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                    <div class="password-input">
+                                        <input type="password" class="form-control" id="confirmPassword" required 
+                                            style="border: 2px solid black; padding: 12px; color: black;">
+                                        <i class="bi bi-eye-slash toggle-password" onclick="togglePassword('confirmPassword')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #6B0000; z-index: 10;"></i>
+                                    </div>
+                                </div>
+                                 
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg" 
+                                        style="background-color: black; border: none;">
+                                        Change Password
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/wow/wow.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling;
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            }
+        }
+
+        function handlePasswordChange(event) {
+            event.preventDefault();
+            
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (newPassword !== confirmPassword) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Passwords do not match',
+                    icon: 'error',
+                    confirmButtonColor: '#d33'
+                });
+                return false;
+            }
+            
+            // Password validation
+            if (newPassword.length < 8) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Password must be at least 8 characters long',
+                    icon: 'error',
+                    confirmButtonColor: '#d33'
+                });
+                return false;
+            }
+            
+            // Success - in a real app, this would update the password on the server
+            Swal.fire({
+                title: 'Success!',
+                text: 'Your password has been changed successfully',
+                icon: 'success',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Continue to Login'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Clear the reset email from session storage
+                    sessionStorage.removeItem('resetEmail');
+                    // Redirect to login page
+                    window.location.href = 'login.html';
+                }
+            });
+            
+            return false;
+        }
+    </script>
+    <!-- Template Javascript -->
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

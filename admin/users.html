@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="img/logo/logo.png" rel="icon">
+  <title>KyusiEsports Admin</title>
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/ruang-admin.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="../img/K.png" rel="icon">
+  <style>
+    /* Make all text inside the table black */
+    .table-container table td,
+    .table-container table th {
+      color: black !important; /* Ensure text is black */
+    }
+  
+    /* Override the text color for the buttons (to keep them white) */
+    .table-container .btn-warning,
+    .table-container .btn-danger {
+      color: white; /* Keep button text color white */
+    }
+
+    /* Set the background color of the table header */
+    .table-container table thead {
+      background-color: #B7B7B7; /* Set background color for header */
+    }
+
+    /* Styles for the modal table */
+    #changeTableModal .table td {
+      color: white !important;
+      border: none !important;
+    }
+
+    #changeTableModal .table {
+      border: none !important;
+    }
+
+    #changeTableModal .modal-title {
+      color: white;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Hamburger menu color */
+    .fa-bars {
+      color: white;
+    }
+
+    /* Bold sidebar navigation items */
+    body #wrapper #accordionSidebar.sidebar-light .nav-item span {
+      font-weight: 900 !important;
+    }
+
+    /* Active menu item color */
+    .active-menu {
+      color: #6777ef !important;
+    }
+
+    /* Font weight consistency */
+    .nav-item span {
+      font-weight: 900 !important;
+    }
+    
+    .sidebar-brand-text {
+      font-weight: 900 !important;
+    }
+
+    /* Active menu item color */
+    .nav-item.active span {
+      color: #FF0000 !important;
+    }
+
+    /* Additional font weight for all sidebar items */
+    .sidebar span {
+      font-weight: 900 !important;
+    }
+
+    /* Ensure consistent boldness in sidebar */
+    #accordionSidebar .nav-item span {
+      font-weight: 900 !important;
+    }
+
+    /* Added dropdown-item-admin style */
+    .dropdown-item-admin {
+      white-space: nowrap !important;  /* Prevent word break on larger screens */
+      color: black !important;  /* Force black text color */
+    }
+
+    @media (max-width: 767.98px) {
+      .dropdown-item-admin {
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+      }
+    }
+
+    /* Added styles for modal close button */
+    .modal .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+      opacity: 0.8;
+    }
+    .modal .btn-close:hover {
+      opacity: 1;
+    }
+
+    /* Style for check icon */
+    .check-icon {
+      color: #28a745;
+      transition: all 0.3s ease;
+      font-size: 30px !important;
+    }
+    .check-icon:hover {
+      opacity: 0.8;
+    }
+
+    /* Make sure icons in table cells are visible */
+    .table td {
+      position: relative;
+    }
+    
+    .edit-icon, .check-icon {
+      cursor: pointer;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar-container" >
+        <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="background-color: black;">
+            <div class="sidebar-brand-icon">
+              <img src="../img/logokyusiyu.jpg">
+            </div>
+            <div class="sidebar-brand-text mx-3">Kyusi Esports</div>
+            <div class="d-md-none" style="position: absolute; right: 1rem;">
+              <span id="sidebarToggle" style="color: white; cursor: pointer; font-size: 20px; background: none;"></span>
+            </div>
+          </a>
+          <hr class="sidebar-divider my-0">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">
+              <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Kyusi Esports Admin</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="users.html">
+              <img src="../img/users.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Users</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="announcement.html">
+              <img src="../img/announce.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Announcement</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="merch.html">
+              <img src="../img/merchi.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Merch</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="partnership.html">
+              <img src="../img/partner.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Partnership</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="team.html">
+              <img src="../img/teami.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Team</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="highlights.html">
+              <img src="../img/highli.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Highlights</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="report.html">
+              <img src="../img/reporti.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Report</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="feedback.html">
+              <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Feedback</span>
+            </a>
+          </li>
+          <hr class="sidebar-divider">
+          
+        </ul>
+      </div>
+  
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        
+        <!-- Topbar -->
+        <div class="topbar-container">
+          <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" style="background-color: black;">
+            <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+              <i class="d-md-none fa fa-bars"></i>
+            </button>
+            <ul class="navbar-nav ml-auto">
+              <!-- Logout Icon (Dropdown) -->
+<!-- Logout Icon -->
+<li class="nav-item">
+  <a href="#" class="btn rounded-0 py-2 px-lg-1 me-2">
+      <img src="img/profile-placeholder.png" alt="" class="rounded-circle" style="width: 35px; height: 35px;">
+  </a>
+  <a href="#" class="btn rounded-0 py-2 px-lg-1 me-4" id="logoutBtn">
+      <img src="../img/logout.png" alt="Logout" class="w-75">
+  </a>
+</li>
+            </ul>
+          </nav>
+        </div>
+
+  
+        <!-- Main Content -->
+        <div class="main-content-container">
+            <div class="container-fluid mb-5">
+              <div class="row justify-content-center d-flex">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center py-4 animated slideInDown" style="background-color: rgba(0, 0, 0, 1); border-radius: 15px; overflow: hidden;">
+                  <h1 class="text-uppercase text-white animated slideInDown" style="font-weight: bold;">KYUSI ESPORTS COMMUNITY USERS</h1>
+                </div>
+              </div>
+            </div>
+          
+            <!-- Table Content -->
+<div class="table-container">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10 col-lg-11 col-md-12 mb-4">
+        <div class="table-responsive border border-dark" style="border-radius: 20px;">
+          <table class="table align-items-center table-flush" style="width: 100%;">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Display Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Udin Wayang</td>
+                <td>Nasi Padang</td>
+                <td>Delivered</td>
+                <td>Udin the Gamer</td>
+                <td>
+                  <div class="d-flex gap-2 justify-content-start">
+                    <a href="#" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#changeTableModal" 
+                    style="margin-right: 15px; background-color: black; color: white;">Edit</a>
+                    <a href="#" class="btn btn-sm" style="background-color: #8C0402; color: white;">Delete</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jaenab Bajigur</td>
+                <td>Gundam 90' Edition</td>
+                <td>Shipping</td>
+                <td>Jaenab the Creator</td>
+                <td>
+                  <div class="d-flex gap-2 justify-content-start">
+                    <div class="d-flex gap-2 justify-content-start">
+                      <a href="#" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#changeTableModal" 
+                      style="margin-right: 15px; background-color: black; color: white;">Edit</a>
+                    <a href="#" class="btn btn-sm" style="background-color: #8C0402; color: white;">Delete</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+              
+              
+              
+          </div>
+          
+           <!-- Modal -->
+           <div class="modal fade" id="changeTableModal" tabindex="-1" aria-labelledby="changeTableModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: black; border-bottom: none; padding-bottom: 0;">
+                  <h5 class="modal-title" id="changeTableModalLabel">EDIT USERS INFORMATION</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: black;">
+                  <div class="table-container">
+                    <div class="table-responsive border border-dark" style="border-radius: 20px;">
+                      <table class="table align-items-center table-flush" style="width: 100%;">
+                        <thead>
+                          <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Display Name</th>
+                            <th>Edit</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Udin Wayang</td>
+                            <td>Nasi Padang</td>
+                            <td>Delivered</td>
+                            <td>Udin the Gamer</td>
+                            <td class="text-center">
+                              <img src="../img/editi.png" style="height: 30px;" alt="Edit" class="edit-icon">
+                              <i class="bi bi-check-circle-fill check-icon" style="display: none;"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Jaenab Bajigur</td>
+                            <td>Gundam 90' Edition</td>
+                            <td>Shipping</td>
+                            <td>Jaenab the Creator</td>
+                            <td class="text-center">
+                              <img src="../img/editi.png" style="height: 30px;" alt="Edit" class="edit-icon">
+                              <i class="bi bi-check-circle-fill check-icon" style="display: none;"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+  
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#sidebarToggle").on('click', function(e) {
+        e.preventDefault();
+        $(".sidebar-container").toggleClass('toggled');
+      });
+
+      // Handle delete button clicks
+      $(document).on('click', 'a[style*="background-color: #8C0402"]', function(e) {
+        e.preventDefault();
+        const row = $(this).closest('tr');
+        
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          iconColor: '#8C0402',
+          showCancelButton: true,
+          confirmButtonColor: '#000000',
+          cancelButtonColor: '#8C0402',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Here you would typically make an API call to delete the user
+            // For now, we'll just remove the row from the table
+            row.remove();
+            
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'User has been deleted.',
+              icon: 'success',
+              confirmButtonColor: '#000000'
+            });
+          }
+        });
+      });
+
+      // Handle edit button clicks in main table
+      $(document).on('click', 'a[data-bs-target="#changeTableModal"]', function(e) {
+        // The modal will open automatically due to Bootstrap
+      });
+
+      // Handle clicks on both edit and check icons
+      $(document).on('click', '.edit-icon, .check-icon', function() {
+        const row = $(this).closest('tr');
+        const editIcon = row.find('.edit-icon');
+        const checkIcon = row.find('.check-icon');
+        const isEditing = row.hasClass('editing');
+        
+        if (!isEditing) {
+          // Start editing
+          Swal.fire({
+            title: 'Edit Mode',
+            text: 'You can now edit the user information',
+            icon: 'info',
+            confirmButtonColor: '#000000'
+          });
+          
+          row.addClass('editing');
+          editIcon.hide();
+          checkIcon.show();
+          row.find('td:not(:last-child)').each(function() {
+            const cell = $(this);
+            const currentText = cell.text();
+            cell.html('<input type="text" class="form-control" value="' + currentText + '">');
+          });
+        } else {
+          // Save changes
+          Swal.fire({
+            title: 'Save changes?',
+            text: "Do you want to save the changes?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#000000',
+            cancelButtonColor: '#8C0402',
+            confirmButtonText: 'Yes, save it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Here you would typically make an API call to update the user
+              row.removeClass('editing');
+              editIcon.show();
+              checkIcon.hide();
+              row.find('td:not(:last-child)').each(function() {
+                const cell = $(this);
+                const input = cell.find('input');
+                const newText = input.val();
+                cell.html(newText);
+              });
+              
+              Swal.fire({
+                title: 'Saved!',
+                text: 'User information has been updated.',
+                icon: 'success',
+                confirmButtonColor: '#000000'
+              });
+            }
+          });
+        }
+      });
+    });
+  </script>
+  <script>
+    document.getElementById('logoutBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Ready to Leave?',
+            text: "Are you sure you want to logout?",
+            icon: 'warning',
+            iconColor: '#d33',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, logout!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/login.html';
+            }
+        });
+    });
+</script>
+</html>

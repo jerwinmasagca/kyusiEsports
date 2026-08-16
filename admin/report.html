@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="img/logo/logo.png" rel="icon">
+  <title>KyusiEsports Admin</title>
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/ruang-admin.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../img/K.png" rel="icon">
+  <style>
+    /* Reset font settings */
+    #accordionSidebar * {
+      font-family: inherit !important;
+    }
+
+    /* Hamburger menu color */
+    .fa-bars {
+      color: white !important;
+    }
+
+    /* Super specific font weight overrides */
+    body #wrapper #accordionSidebar.sidebar-light .nav-item span {
+      font-weight: 900 !important;
+    }
+
+    body #wrapper #accordionSidebar.sidebar-light .sidebar-brand .sidebar-brand-text {
+      font-weight: 900 !important;
+    }
+
+    .sidebar-light .nav-item .nav-link span {
+      font-weight: 900 !important;
+    }
+
+    /* Override any potential external CSS */
+    .sidebar-light .nav-item span,
+    .sidebar-light .nav-link span,
+    .sidebar span,
+    .nav-item span,
+    .nav-link span {
+      font-weight: 900 !important;
+      font-family: inherit !important;
+    }
+
+    /* Active menu item color */
+    .nav-item.active span {
+      color: #FF0000 !important;
+    }
+
+    /* Table and card styles */
+    .table-container table td,
+    .table-container table th {
+      color: black !important;
+    }
+  
+    .table-container .btn-warning,
+    .table-container .btn-danger {
+      color: white;
+    }
+
+    .table-container table thead {
+      background-color: #B7B7B7;
+    }
+
+    .form-check-input {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-bottom: 0.5rem;
+      border: 2px solid black !important;
+      cursor: pointer;
+    }
+
+    .form-check-input:checked {
+      background-color: black !important;
+      border-color: black !important;
+    }
+
+    .form-check-input:focus {
+      box-shadow: none !important;
+      border-color: black !important;
+    }
+
+    .form-check {
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background-color: white !important;
+      color: black !important;
+    }
+    .card a {
+      color: black;
+    }
+    .card a:hover {
+      color: #7F7F7F;
+    }
+
+    .tournament-container {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .tournament-text {
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar-container" >
+        <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="background-color: black;">
+            <div class="sidebar-brand-icon">
+              <img src="../img/logokyusiyu.jpg">
+            </div>
+            <div class="sidebar-brand-text mx-3">Kyusi Esports</div>
+            <div class="d-md-none" style="position: absolute; right: 1rem;">
+              <span id="sidebarToggle" style="color: white; cursor: pointer; font-size: 20px; background: none;"></span>
+            </div>
+          </a>
+          <hr class="sidebar-divider my-0">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">
+              <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Kyusi Esports Admin</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="users.html">
+              <img src="../img/users.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Users</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="announcement.html">
+              <img src="../img/announce.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Announcement</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="merch.html">
+              <img src="../img/merchi.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Merch</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="partnership.html">
+              <img src="../img/partner.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Partnership</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="team.html">
+              <img src="../img/teami.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Team</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="highlights.html">
+              <img src="../img/highli.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Highlights</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="report.html">
+              <img src="../img/reporti.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Report</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="feedback.html">
+              <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Feedback</span>
+            </a>
+          </li>
+          <hr class="sidebar-divider">
+          
+        </ul>
+      </div>
+  
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        
+        <!-- Topbar -->
+        <div class="topbar-container">
+          <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" style="background-color: black;">
+            <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+              <i class="d-md-none fa fa-bars"></i>
+            </button>
+            <ul class="navbar-nav ml-auto">
+              <!-- Logout Icon (Dropdown) -->
+<!-- Logout Icon -->
+<li class="nav-item">
+  <a href="#" class="btn rounded-0 py-2 px-lg-1 me-2">
+      <img src="img/profile-placeholder.png" alt="" class="rounded-circle" style="width: 35px; height: 35px;">
+  </a>
+  <a href="#" class="btn rounded-0 py-2 px-lg-1 me-4" id="logoutBtn">
+      <img src="../img/logout.png" alt="Logout" class="w-75">
+  </a>
+</li>
+            </ul>
+          </nav>
+        </div>
+
+
+        <div class="container">
+            <h1 class="fw-bold my-5" style="color: black;">REPORT POST</h1>
+        </div>
+    <div class="container mt-4">
+        <!-- Post 1 -->
+        <div class="row">
+            <div class="col-9">
+                <div class="card mb-4 shadow-sm" style="border-radius: 50px; border: 2px solid black;">
+                    <div class="card-body position-relative p-5">
+                        <div class="position-absolute top-0 end-0 m-3 me-4">
+                            <img src="../img/reporticon.png" alt="">
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="me-3">
+                                <img src="profile-placeholder.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">
+                            </div>
+                            <div>
+                                <h5 class="mb-0" style="color: black;">Username</h5>
+                            </div>
+                        </div>
+                        <h4 class="card-title" style="color: black; margin-left: 15px; margin-right: 15px;">Post Title Goes Here</h4>
+                        <p class="card-text text-dark" style="margin-left: 15px; margin-right: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <span class="badge p-2 px-4 me-3 fw-light" style="border-radius: 15px; background-color: #626262;">VALORANT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 d-flex align-items-center">
+                <div class="d-flex flex-column w-100">
+                    <div class="d-flex flex-column flex-xxl-row gap-2">
+                        <button class="btn btn-warning px-2 mb-xxl-0" data-bs-toggle="modal" data-bs-target="#addPostModal" style="font-size: 1rem; border-radius: 5px; background-color: #000000; color: white; height: 38px;">Ignore</button>
+                        <button class="btn btn-danger px-2 mb-xxl-0" style="font-size: 1rem; background-color: #000000; height: 38px;">Remove</button>
+                        <div class="d-flex flex-column gap-1 mb-xxl-0">
+                            <button class="btn btn-danger px-2" style="font-size: 1rem; background-color: #000000; height: 38px;">Restrict</button>
+                            <label style="font-size: 7px; font-weight: bold; color: #7C7C7C; margin-bottom: 0;">DAYS OF RESTRICTION</label>
+                            <select class="form-select" style="font-size: 11px; background-color: white; color: black; width: 100%; height: 20px; padding-top: 2px; padding-bottom: 2px; border: 1px solid;">
+                                <option selected disabled></option>
+                                <option value="1">1 day</option>
+                                <option value="3">3 days</option>
+                                <option value="7">7 days</option>
+                                <option value="14">14 days</option>
+                                <option value="30">30 days</option>
+                                <option value="40">40 days</option>
+                                <option value="45">45 days</option>
+                                <option value="50">50 days</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-danger px-3" style="font-size: 1rem; background-color: #8C0402; height: 38px;">Ban</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Post 1 end-->
+        <!-- Post 2 -->
+                <div class="row">
+                    <div class="col-9">
+                        <div class="card mb-4 shadow-sm" style="border-radius: 50px; border: 2px solid black;">
+                            <div class="card-body position-relative p-5">
+                                <div class="position-absolute top-0 end-0 m-3 me-4">
+                                    <img src="../img/reporticon.png" alt="">
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="me-3">
+                                        <img src="profile-placeholder.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0" style="color: black;">Username</h5>
+                                    </div>
+                                </div>
+                                <h4 class="card-title" style="color: black; margin-left: 15px; margin-right: 15px;">Post Title Goes Here</h4>
+                                <p class="card-text text-dark" style="margin-left: 15px; margin-right: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <div class="d-flex align-items-center mt-3">
+                                    <span class="badge p-2 px-4 me-3 fw-light" style="border-radius: 15px; background-color: #626262;">VALORANT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 d-flex align-items-center">
+                        <div class="d-flex flex-column w-100">
+                            <div class="d-flex flex-column flex-xxl-row gap-2">
+                                <button class="btn btn-warning px-2 mb-xxl-0" data-bs-toggle="modal" data-bs-target="#addPostModal" style="font-size: 1rem; border-radius: 5px; background-color: #000000; color: white; height: 38px;">Ignore</button>
+                                <button class="btn btn-danger px-2 mb-xxl-0" style="font-size: 1rem; background-color: #000000; height: 38px;">Remove</button>
+                                <div class="d-flex flex-column gap-1 mb-xxl-0">
+                                    <button class="btn btn-danger px-2" style="font-size: 1rem; background-color: #000000; height: 38px;">Restrict</button>
+                                    <label style="font-size: 7px; font-weight: bold; color: #7C7C7C; margin-bottom: 0;">DAYS OF RESTRICTION</label>
+                                    <select class="form-select " style="font-size: 11px; background-color: white; color: black; width: 100%; height: 20px; padding-top: 2px; padding-bottom: 2px; border: 1px solid;">
+                                        <option selected disabled></option>
+                                        <option value="1">1 day</option>
+                                        <option value="3">3 days</option>
+                                        <option value="7">7 days</option>
+                                        <option value="14">14 days</option>
+                                        <option value="30">30 days</option>
+                                        <option value="40">40 days</option>
+                                        <option value="45">45 days</option>
+                                        <option value="50">50 days</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-danger px-3" style="font-size: 1rem; background-color: #8C0402; height: 38px;">Ban</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Post 2 end-->
+                <!-- Post 3 -->
+        <div class="row">
+            <div class="col-9">
+                <div class="card mb-4 shadow-sm" style="border-radius: 50px; border: 2px solid black;">
+                    <div class="card-body position-relative p-5">
+                        <div class="position-absolute top-0 end-0 m-3 me-4">
+                            <img src="../img/reporticon.png" alt="">
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="me-3">
+                                <img src="profile-placeholder.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">
+                            </div>
+                            <div>
+                                <h5 class="mb-0" style="color: black;">Username</h5>
+                            </div>
+                        </div>
+                        <h4 class="card-title" style="color: black; margin-left: 15px; margin-right: 15px;">Post Title Goes Here</h4>
+                        <p class="card-text text-dark" style="margin-left: 15px; margin-right: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <span class="badge p-2 px-4 me-3 fw-light" style="border-radius: 15px; background-color: #626262;">VALORANT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 d-flex align-items-center">
+                <div class="d-flex flex-column w-100">
+                    <div class="d-flex flex-column flex-xxl-row gap-2">
+                        <button class="btn btn-warning px-2 mb-xxl-0" data-bs-toggle="modal" data-bs-target="#addPostModal" style="font-size: 1rem; border-radius: 5px; background-color: #000000; color: white; height: 38px;">Ignore</button>
+                        <button class="btn btn-danger px-2 mb-xxl-0" style="font-size: 1rem; background-color: #000000; height: 38px;">Remove</button>
+                        <div class="d-flex flex-column gap-1 mb-xxl-0">
+                            <button class="btn btn-danger px-2" style="font-size: 1rem; background-color: #000000; height: 38px;">Restrict</button>
+                            <label style="font-size: 7px; font-weight: bold; color: #7C7C7C; margin-bottom: 0;">DAYS OF RESTRICTION</label>
+                            <select class="form-select" style="font-size: 0.9rem; background-color: white; color: black; width: 100%; height: 20px; padding-top: 2px; padding-bottom: 2px; border: 1px solid;">
+                                <option selected disabled></option>
+                                <option value="1">1 day</option>
+                                <option value="3">3 days</option>
+                                <option value="7">7 days</option>
+                                <option value="14">14 days</option>
+                                <option value="30">30 days</option>
+                                <option value="40">40 days</option>
+                                <option value="45">45 days</option>
+                                <option value="50">50 days</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-danger px-3" style="font-size: 1rem; background-color: #8C0402; height: 38px;">Ban</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Post 3 end-->
+
+
+    </div>
+    </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Using event delegation for all buttons
+                document.addEventListener('click', function(e) {
+                    const button = e.target.closest('button');
+                    if (!button) return; // If click wasn't on a button
+
+                    // Prevent default button behavior
+                    e.preventDefault();
+
+                    // Handle Ignore button
+                    if (button.classList.contains('btn-warning')) {
+                        Swal.fire({
+                            title: 'Ignore Report?',
+                            text: "Are you sure you want to ignore this report?",
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonColor: '#000',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, ignore it!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Here you can add your backend API call
+                                // const reportId = button.dataset.reportId; // Get report ID from data attribute
+                                // await fetch('/api/reports/ignore/' + reportId, { method: 'POST' });
+                                
+                                Swal.fire({
+                                    title: 'Ignored!',
+                                    text: 'The report has been ignored.',
+                                    icon: 'success',
+                                    confirmButtonColor: '#000'
+                                }).then(() => {
+                                    button.closest('.row').remove();
+                                });
+                            }
+                        });
+                    }
+
+                    // Handle Remove button
+                    if (button.classList.contains('btn-danger') && 
+                        button.style.backgroundColor === 'rgb(0, 0, 0)' && 
+                        button.textContent.trim() === 'Remove') {
+                        Swal.fire({
+                            title: 'Remove Post?',
+                            text: "Are you sure you want to remove this post?",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            iconColor:'yellow',
+                            confirmButtonColor: '#000',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, remove it!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Here you can add your backend API call
+                                // const postId = button.dataset.postId;
+                                // await fetch('/api/posts/' + postId, { method: 'DELETE' });
+                                
+                                Swal.fire({
+                                    title: 'Removed!',
+                                    text: 'The post has been removed.',
+                                    icon: 'success',
+                                    confirmButtonColor: '#000'
+                                }).then(() => {
+                                    button.closest('.row').remove();
+                                });
+                            }
+                        });
+                    }
+
+                    // Handle Restrict button
+                    if (button.classList.contains('btn-danger') && 
+                        button.style.backgroundColor === 'rgb(0, 0, 0)' && 
+                        button.textContent.trim() === 'Restrict') {
+                        const selectElement = button.parentElement.querySelector('.form-select');
+                        const selectedDays = selectElement ? selectElement.value : '';
+
+                        if (!selectedDays) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Please select the number of days for restriction!',
+                                confirmButtonColor: '#000'
+                            });
+                            return;
+                        }
+
+                        Swal.fire({
+                            title: 'Restrict User?',
+                            text: `Are you sure you want to restrict this user for ${selectedDays} days?`,
+                            icon: 'warning',
+                            showCancelButton: true,
+                            iconColor:'orange',
+                            confirmButtonColor: '#000',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, restrict!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Here you can add your backend API call
+                                // const userId = button.dataset.userId;
+                                // await fetch('/api/users/restrict', {
+                                //     method: 'POST',
+                                //     headers: { 'Content-Type': 'application/json' },
+                                //     body: JSON.stringify({ userId, days: selectedDays })
+                                // });
+                                
+                                Swal.fire({
+                                    title: 'Restricted!',
+                                    text: `The user has been restricted for ${selectedDays} days.`,
+                                    icon: 'success',
+                                    confirmButtonColor: '#000'
+                                }).then(() => {
+                                    button.closest('.row').remove();
+                                });
+                            }
+                        });
+                    }
+
+                    // Handle Ban button
+                    if (button.classList.contains('btn-danger') && 
+                        button.style.backgroundColor === 'rgb(140, 4, 2)') {
+                        Swal.fire({
+                            title: 'Ban User?',
+                            text: "Are you sure you want to ban this user? This action cannot be undone!",
+                            icon: 'warning',
+                            iconColor:'#8C0402',
+                            showCancelButton: true,
+                            confirmButtonColor: '#000',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, ban user!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Here you can add your backend API call
+                                // const userId = button.dataset.userId;
+                                // await fetch('/api/users/ban/' + userId, { method: 'POST' });
+                                
+                                Swal.fire({
+                                    title: 'Banned!',
+                                    text: 'The user has been permanently banned.',
+                                    icon: 'success',
+                                    confirmButtonColor: '#000'
+                                }).then(() => {
+                                    button.closest('.row').remove();
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#sidebarToggle").on('click', function(e) {
+        e.preventDefault();
+        $(".sidebar-container").toggleClass('toggled');
+      });
+    });
+  </script>
+  <script>
+    document.getElementById('logoutBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Ready to Leave?',
+            text: "Are you sure you want to logout?",
+            icon: 'warning',
+            iconColor: '#d33',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, logout!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/login.html';
+            }
+        });
+    });
+</script>
+</html>

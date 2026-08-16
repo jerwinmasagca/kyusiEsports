@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="img/logo/logo.png" rel="icon">
+  <title>KyusiEsports Admin</title>
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/ruang-admin.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../img/K.png" rel="icon">
+  <style>
+    /* Reset font settings */
+    #accordionSidebar * {
+      font-family: inherit !important;
+    }
+
+    /* Hamburger menu color */
+    .fa-bars {
+      color: white !important;
+    }
+
+    /* Super specific font weight overrides */
+    body #wrapper #accordionSidebar.sidebar-light .nav-item span {
+      font-weight: 900 !important;
+    }
+
+    body #wrapper #accordionSidebar.sidebar-light .sidebar-brand .sidebar-brand-text {
+      font-weight: 900 !important;
+    }
+
+    .sidebar-light .nav-item .nav-link span {
+      font-weight: 900 !important;
+    }
+
+    /* Override any potential external CSS */
+    .sidebar-light .nav-item span,
+    .sidebar-light .nav-link span,
+    .sidebar span,
+    .nav-item span,
+    .nav-link span {
+      font-weight: 900 !important;
+      font-family: inherit !important;
+    }
+
+    /* Active menu item color */
+    .nav-item.active span {
+      color: #FF0000 !important;
+    }
+
+    /* Card styles */
+    .card {
+      background-color: white !important;
+      color: black !important;
+    }
+    .card a {
+      color: black;
+    }
+    .card a:hover {
+      color: #7F7F7F;
+    }
+
+    .delete-overlay {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    #postTitle::placeholder{
+      color: white;
+      opacity: 1; /* Ensures visibility */
+    }
+
+    .dropdown-item-admin {
+        white-space: nowrap !important;  /* Prevent word break on larger screens */
+        color: black !important;  /* Force black text color */
+    }
+
+    @media (max-width: 767.98px) {
+        .dropdown-item-admin {
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            word-break: break-word !important;
+        }
+    }
+
+    .delete-overlay {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .show-delete .delete-overlay {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar-container" >
+        <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="background-color: black;">
+            <div class="sidebar-brand-icon">
+              <img src="../img/logokyusiyu.jpg">
+            </div>
+            <div class="sidebar-brand-text mx-3">Kyusi Esports</div>
+            <div class="d-md-none" style="position: absolute; right: 1rem;">
+              <span id="sidebarToggle" style="color: white; cursor: pointer; font-size: 20px; background: none;"></span>
+            </div>
+          </a>
+          <hr class="sidebar-divider my-0">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">
+              <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Kyusi Esports Admin</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="users.html">
+              <img src="../img/users.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Users</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="announcement.html">
+              <img src="../img/announce.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Announcement</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="merch.html">
+              <img src="../img/merchi.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Merch</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="partnership.html">
+              <img src="../img/partner.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Partnership</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="team.html">
+              <img src="../img/teami.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Team</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="highlights.html">
+              <img src="../img/highli.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Highlights</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="report.html">
+              <img src="../img/reporti.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Report</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="feedback.html">
+              <img src="../img/admin.png" alt="" srcset="" style="height: 40px;">
+              <span style="color: black">Feedback</span>
+            </a>
+          </li>
+          <hr class="sidebar-divider">
+   
+        </ul>
+      </div>
+  
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        
+        <!-- Topbar -->
+        <div class="topbar-container">
+          <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" style="background-color: black;">
+            <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+              <i class="d-md-none fa fa-bars"></i>
+            </button>
+            <ul class="navbar-nav ml-auto">
+              <!-- Logout Icon (Dropdown) -->
+<!-- Logout Icon -->
+<li class="nav-item">
+  <a href="#" class="btn rounded-0 py-2 px-lg-1 me-2">
+      <img src="img/profile-placeholder.png" alt="" class="rounded-circle" style="width: 35px; height: 35px;">
+  </a>
+  <a href="#" class="btn rounded-0 py-2 px-lg-1 me-4" id="logoutBtn">
+      <img src="../img/logout.png" alt="Logout" class="w-75">
+  </a>
+</li>
+            </ul>
+          </nav>
+        </div>
+
+  
+        <!-- Main Content -->
+
+        <div class="main-content-container">
+          <div class="container-fluid ">
+            <div class="d-flex justify-content-center">
+              <h1 class="text-center fw-bold py-3" style="color: black; font-size: 70px; border: 2px solid black; border-radius: 20px; width: 40%;">MERCH</h1>
+            </div>
+            <div class="row bg-white p-5 pt-5">
+                <!-- Image 1 -->
+                <div class="col-xl-4 text-center mb-4 wow fadeInUp" data-wow-delay="0.1s" style="position: relative;">
+                    <a href="https://www.facebook.com/share/3U6KNfhGo5sK2GFR/" target="_blank">
+                        <img src="../img/lace.png" alt="Image 1" class="img-fluid mb-3">
+                    </a>
+                    <h1 class="mt-3" style="color: black;">Elegant Lace</h1>
+                    <div class="delete-overlay">X</div>
+                </div>
+                <!-- Image 2 -->
+                <div class="col-xl-4 text-center mb-4 wow fadeInUp" data-wow-delay="0.2s" style="position: relative;">
+                    <a href="https://www.facebook.com/share/ZGeNqUieVGtiRywp/" target="_blank">
+                        <img src="../img/bag.png" alt="Image 2" class="img-fluid mb-3">
+                    </a>
+                    <h1 class="mt-3" style="color: black;">Stylish Bag</h1>
+                    <div class="delete-overlay">X</div>
+                </div>
+                <!-- Image 3 -->
+                <div class="col-xl-4 text-center mb-4 wow fadeInUp" data-wow-delay="0.3s" style="position: relative;">
+                    <a href="https://www.facebook.com/share/ufbYFzM45wgWMFTD/" target="_blank">
+                        <img src="../img/lacebag.png" alt="Image 3" class="img-fluid mb-3">
+                    </a>
+                    <h1 class="mt-3" style="color: black;">Lace Bag Combo</h1>
+                    <div class="delete-overlay">X</div>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid mb-5">
+          <div class="d-flex justify-content-end">
+              <button class="d-flex justify-content-end btn-warning mx-3 px-4 py-2 " data-bs-toggle="modal" data-bs-target="#addPostModal" style="font-size: 1.2rem; border-radius: 5px; background-color: #000000;">Add</button>
+              <button id="deleteToggleBtn" class="d-flex justify-content-end btn btn-danger px-4 py-2 me-md-5" style="font-size: 1.2rem; background-color: #8C0402;">Delete</button>
+          </div>
+      </div>
+        
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content" style="background-color: black; color: white; border: none;">
+              <div class="modal-header" style="justify-content: center; border: none;">
+                <h2 class="modal-title mt-3" id="addPostModalLabel">ADD NEW MERCH</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; right: 15px;"></button>
+              </div>
+              <div class="modal-body my-5" style="border: none;">
+                <div class="row">
+                  <div class="col-md-8">
+                    <!-- Title input -->
+                    <div class="mb-3">
+                      <input type="text" class="form-control" id="postTitle" placeholder="Name of merch" style="background-color: black; color: white; border-radius: 7px;">
+                    </div>
+                    <!-- image upload -->
+                    <div class="d-flex justify-content-start">
+                      <label for="profileImageInput" class="d-flex flex-column" style="cursor: pointer;">
+                        <div class="bg-black text-white d-flex align-items-center justify-content-center" style="width: 200px; height: 180px;  border: 1px solid white;">
+                            <img src="path/to/icon.png" alt="Add" style="width: 50px; height: 40px;">
+                        </div>
+                        <span class="mt-2" style="width: 200px; text-align: center;">Upload photo</span>
+                      </label>
+                      <input type="file" id="profileImageInput" class="d-none">
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <div class="d-flex flex-column h-100 justify-content-end">
+                      <!-- Checkbox first -->
+                      <div>
+                        <div class="d-flex align-items-center" style="gap: 5px;">
+                          <input type="checkbox" 
+                                 id="publishCheck" 
+                                 style="width: 15px; 
+                                        height: 15px; 
+                                        cursor: pointer; 
+                                        appearance: auto;
+                                        -webkit-appearance: checkbox;
+                                        position: relative;
+                                        display: inline-block;
+                                        margin: 0;">
+                          <label for="publishCheck" style="color: white; font-size: 12px; margin: 0; cursor: pointer;">Include button in announcement</label>
+                        </div>
+                      </div>
+                      
+                      <!-- Capsule text second -->
+                      <div>
+                        <label for="capsuleText" class="form-label" style="color: white; font-size: 12px;">Destination URL</label>
+                        <input type="text"
+                              class="form-control"
+                              id="capsuleText"
+                              placeholder=""
+                              style="background-color: black; color: white; border-radius: 50px; padding: 5px 15px; height: 25px; font-size: 12px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer mb-3 me-2" style="border: none;">
+                <!-- Post button -->
+                <button type="button" class="btn btn-light px-4" id="postButton" style="padding-top: 1px; padding-bottom: 1px;">Post</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+
+  
+<!-- JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const deleteToggleBtn = document.getElementById('deleteToggleBtn');
+    const imageContainers = document.querySelectorAll('.col-xl-4');
+    let deleteMode = false;
+
+    deleteToggleBtn.addEventListener('click', function() {
+      deleteMode = !deleteMode;
+      imageContainers.forEach(container => {
+        if (deleteMode) {
+          container.classList.add('show-delete');
+        } else {
+          container.classList.remove('show-delete');
+        }
+      });
+    });
+
+    // Add click event listeners to all delete overlays
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('delete-overlay')) {
+        e.preventDefault();
+        const container = e.target.closest('.col-xl-4');
+        const merchName = container.querySelector('h1').textContent;
+        
+        Swal.fire({
+          title: 'Delete Merchandise?',
+          text: `Are you sure you want to delete "${merchName}"?`,
+          icon: 'warning',
+          showCancelButton: true,
+          iconColor:'#8C0402',
+          confirmButtonColor: '#000',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Here you can add your backend API call
+            // const merchId = container.dataset.merchId;
+            // await fetch('/api/merch/' + merchId, { method: 'DELETE' });
+            
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'The merchandise has been removed.',
+              icon: 'success',
+              confirmButtonColor: '#000'
+            }).then(() => {
+              container.remove();
+              
+              // If no more items, turn off delete mode
+              if (document.querySelectorAll('.col-xl-4').length === 0) {
+                deleteMode = false;
+                deleteToggleBtn.classList.remove('active');
+              }
+            });
+          }
+        });
+      }
+    });
+  });
+</script>
+<script>
+  // Handle post button clicks
+  document.getElementById('postButton').addEventListener('click', function() {
+    const title = document.getElementById('postTitle').value;
+    const imageInput = document.getElementById('profileImageInput');
+
+    if (!title || !imageInput.files[0]) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please fill in the merch name and upload an image!',
+        confirmButtonColor: '#000'
+      });
+      return;
+    }
+
+    Swal.fire({
+      title: 'Post Merchandise?',
+      text: "Are you sure you want to post this merchandise?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#000',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, post it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Posted!',
+          text: 'Your merchandise has been posted successfully.',
+          icon: 'success',
+          confirmButtonColor: '#000'
+        }).then(() => {
+          // Clear form and close modal
+          document.getElementById('postTitle').value = '';
+          document.getElementById('profileImageInput').value = '';
+          document.getElementById('capsuleText').value = '';
+          document.getElementById('publishCheck').checked = false;
+          document.querySelector('#addPostModal .btn-close').click();
+        });
+      }
+    });
+  });
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#sidebarToggle").on('click', function(e) {
+        e.preventDefault();
+        $(".sidebar-container").toggleClass('toggled');
+      });
+    });
+  </script>
+  <script>
+    document.getElementById('logoutBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Ready to Leave?',
+            text: "Are you sure you want to logout?",
+            icon: 'warning',
+            iconColor: '#d33',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, logout!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '../login.html';
+            }
+        });
+    });
+</script>
+</html>
