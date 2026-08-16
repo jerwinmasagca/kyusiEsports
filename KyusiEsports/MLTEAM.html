@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>KyusiEsportsCommunity</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Oswald:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="../img/K.png" rel="icon">
+
+        <!--Sweet Alert-->
+        <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        /* Fix for modal overflow */
+        .swal2-icon.swal2-warning {
+            border-color: #6B0000 !important;
+            color: #6B0000 !important;
+        }
+
+        /* Fix SweetAlert2 overflow */
+        .swal2-container {
+            padding-right: 0 !important;
+        }
+
+        .swal2-popup {
+            width: auto !important;
+            max-width: 90% !important;
+            margin: 0 1rem !important;
+        }
+
+        body.swal2-shown {
+            padding-right: 0 !important;
+            overflow-y: hidden !important;
+        }
+
+        .swal2-container.swal2-backdrop-show {
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+        }
+.modal-open {
+    overflow: hidden;
+    padding-right: 0 !important;
+}
+
+.modal {
+    padding-right: 0 !important;
+}
+
+.modal-dialog {
+    margin: 1.75rem auto;
+    max-width: 500px;
+    width: calc(100% - 2rem);
+}
+
+.modal-content {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.modal-body {
+    padding: 1rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 210px);
+}
+
+/* Ensure icons don't cause horizontal overflow */
+.feedback-icon {
+    font-size: 2.5em;
+}
+
+@media (max-width: 576px) {
+    .feedback-icon {
+        font-size: 2em;
+    }
+    .modal-dialog {
+        margin: 1rem;
+    }
+}
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes pulse {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+.feedback-icon {
+    font-size: 2em;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+}
+
+/* Override font-awesome size to match index.html */
+.fa-3x.feedback-icon {
+    font-size: 3em !important;  /* Force the larger size */
+}
+
+.feedback-icon:hover {
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.2));
+}
+
+.feedback-icon.selected {
+    opacity: 1 !important;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255,215,0,0.5));
+}
+
+        .container-fluid {
+            width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            overflow-x: hidden !important;
+        }
+
+        .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .swal2-icon.swal2-warning {
+            border-color: #6B0000 !important;
+            color: #6B0000 !important;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+            <h1 class="mb-0 text-primary text-uppercase">
+                <img src="img/esportslogo.png" alt="logo" style="width: 250px; height: 50px;">
+            </h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0 align-items-center">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">ABOUT US</a>
+                <a href="COMMUNITY.HTML" class="nav-item nav-link">COMMUNITY</a>
+                <a href="TEAMS.html" class="nav-item nav-link active">TEAMS</a>
+                <a href="activities.html" class="nav-item nav-link">ACTIVITIES</a>
+                <a href="merch.html" class="nav-item nav-link">MERCH</a>
+            </div>
+    
+            <!-- Container to Center the Profile, Notifications, and Logout Icons -->
+            <div class="d-flex justify-content-center align-items-center">
+                <!-- Profile Image Container with Rounded Circle -->
+                <a href="profile.html" class="btn rounded-0 py-2 px-lg-1">
+                    <img src="img/profile-placeholder.png" alt="" class="rounded-circle" style="width: 35px; height: 35px;">
+                </a>
+    
+                <!-- Notifications Icon -->
+                <a href="#" class="btn rounded-0 py-2 px-lg-1">
+                    <img src="img/notifications.png" alt="notifications" class="w-75">
+                </a>
+                
+                <!-- Logout Icon -->
+                <a href="#" class="btn rounded-0 py-2 px-lg-1" id="logoutBtn">
+                    <img src="img/logout.png" alt="logout" class="w-75">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <img class="w-100 h-100" src="img/MLBG.png" alt="Image">
+
+    <div class="container-fluid my-0 py-4" style="background-color: rgba(0, 0, 0, 1)"> <!-- Keep my-0 for no margin -->
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-7 text-center">
+                <div class="section-title position-relative text-center mx-auto "  style="max-width: 600px;">
+                    <h1 class="display-4 text-uppercase text-white animated slideInDown">MOBILE LEGENDS</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!--CONTAINER FOR IMAGE AND NAME OF LOL MEMBERS-->
+    <!-- <div class="container-fluid py-4 profile-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+                <div class="p-2">
+                    <h1 class="profile-heading">{{ dynamic_name }}</h1>
+                    <h3 class="profile-heading">{{ dynamic_role }}</h3>
+                    <img src="{{ dynamic_image }}" alt="Dynamic Team Image" class="img-fluid profile-image">
+                </div>
+            </div>
+            
+        </div>
+    </div> -->
+    
+
+<!--SAMPLE OUTPUT:-->
+<div class="container-fluid py-4" style="background-color: white;">
+    <div class="row justify-content-center"> <!-- Single row for both sections -->
+        <!-- Top Row (4 columns for large screens, 2 columns for medium screens and below) -->
+        <div class=" col-lg-3 col-md-6 col-12 mb-4"> <!-- Adjust spacing with mb-4 -->
+            <div class=" p-2">
+                <h1 style="color: black;">Carlos</h1>
+                <h3 style="color: black;">Top</h3>
+                <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+            </div>
+        </div>
+        <div class=" col-lg-3 col-md-6 col-12 mb-4">
+            <div class="p-2">
+                <h1 style="color: black;">Carlos</h1>
+                <h3 style="color: black;">Top</h3>
+                <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+            </div>
+        </div>
+        <div class=" col-lg-3 col-md-6 col-12 mb-4">
+            <div class="p-2">
+                <h1 style="color: black;">Carlos</h1>
+                <h3 style="color: black;">Top</h3>
+                <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+            </div>
+        </div>
+        <div class=" col-lg-3 col-md-6 col-12 mb-4">
+            <div class="p-2">
+                <h1 style="color: black;">Carlos</h1>
+                <h3 style="color: black;">Top</h3>
+                <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+            </div>
+        </div>
+
+        <!-- Bottom Row (4 columns for large screens, 2 columns for medium screens and below) -->
+        <div class=" col-lg-3 col-md-6 col-12 mt-5"> <!-- Add top margin to separate rows -->
+            <div class=" p-2">
+                <h1 style="color: black;">Carlos</h1>
+                <h3 style="color: black;">Top</h3>
+                <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+            </div>
+        </div>
+        <div class=" col-lg-3 col-md-6 col-12 mt-5">
+            <div class="p-2">
+                <h1 style="color: black;">Carlos</h1>
+                <h3 style="color: black;">Top</h3>
+                <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+            </div>
+        </div>
+        <div class=" col-lg-3 col-md-6 col-12 mt-5">
+            <div class="p-2">
+                <h1 style="color: black;">Carlos</h1>
+                <h3 style="color: black;">Top</h3>
+                <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+            </div>
+        </div>
+        <div class=" col-lg-3 col-md-6 col-12 mt-5">
+            <div class="p-2">
+                <h1 style="color: black;">Carlos</h1>
+                <h3 style="color: black;">Top</h3>
+                <img src="../img/carlos.png" alt="carlos" class="img-fluid" style="max-height: 350px; width: auto;">
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    
+
+<div class="container-fluid my-0 py-4" style="background-color: rgba(0, 0, 0, 1)"> <!-- Keep my-0 for no margin -->
+    <div class="row gx-5 justify-content-center">
+        <div class="col-lg-7 text-center">
+            <div class="section-title position-relative text-center mx-auto "  style="max-width: 600px;">
+                <h1 class="display-4 text-uppercase text-white animated slideInDown">MOBILE LEGENDS TEAM CLIPS</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--CONTAINER FOR VIDEO CLIPS -->
+<!-- <div class="container-fluid my-0 py-4" style="background-color: white;">
+    <div class="row gx-5 justify-content-center mt-4">
+        <div class="row col-lg-6"> -->
+            <!-- First row of 1 video -->
+            <!-- <div class="col-md-6 mb-4">
+                <div class="ratio ratio-16x9">
+                    <video class="video-container" controls>
+                        <source src="path/to/video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+<!--SAMPLE OUTPUT:-->
+<div class="container-fluid my-0 py-4" style="background-color: white;">
+    <!-- Separate section for the title -->
+
+    <!-- Section for the video iframes -->
+    <div class="row gx-5 justify-content-center mt-4">
+            <div class="row  col-lg-6">
+                <!-- First row of 2 iframes -->
+                <div class=" col-md-6 mb-4">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FKyusiEsportsCommunity%2Fvideos%2F2130143054028908&width=500&show_text=false&height=281&appId"
+                        width="100%" height="281" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" 
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F100067188901394%2Fvideos%2F493534826307086&width=500&show_text=false&height=281&appId"
+                        width="100%" height="281" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" 
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                <!-- Second row of 2 iframes -->
+                <div class="col-md-6 mb-4">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FAJSenpaix%2Fvideos%2F450474014728972%2F&width=500&show_text=false&height=281&appId"
+                        width="100%" height="281" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" 
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FJolidofc%2Fvideos%2F594964258232533&width=500&show_text=false&height=282&appId"
+                        width="100%" height="282" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" 
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+            </div>
+        </div>
+</div>
+    
+
+    <!-- Footer Start -->
+    <div class="container-fluid text-light footer wow fadeIn py-5" data-wow-delay="0.1s" style="background-color: #6B0000;">
+        <div class="row g-5 mx-lg-5 mx-2 align-items-center">
+            <!-- Tagline -->
+            <div class="col-md-3 footer-tagline">
+                <h1>"Kyusi Esports, We play"</h1>
+            </div>
+            
+            <!-- Community Text and Social Icons -->
+            <div class="col-md-3 footer-community">
+                <h1 style="color: white;">KYUSI ESPORTS</h1>
+                <h1 class="text-wrap">COMMUNITY</h1>
+                <div class="d-flex justify-content-center justify-content-md-start mt-3">
+                    <a class="btn bg-white text-dark m-1" href="https://www.facebook.com/KyusiEsportsCommunity" target="_blank">
+                        <i class="fab fa-facebook-f" style="color: #6B0000; font-size: 1.5rem;"></i>
+                    </a>
+                    <a class="btn bg-white text-dark m-1" href="https://www.instagram.com/kyusiesports" target="_blank">
+                        <i class="fab fa-instagram" style="color: #6B0000; font-size: 1.5rem;"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Logos -->
+            <div class="col-md-3 d-flex justify-content-center align-items-center footer-logos">
+                <div class="d-flex align-items-center">
+                    <img src="img/K.png" alt="" style="height: 100px; width: auto;" class="mx-2">
+                    <img src="img/infinix1.png" alt="" style="height: 100px; width: auto;" class="mx-2">
+                </div>
+            </div>
+            
+            <!-- Chatbot Image -->
+            <div class="col-md-3 d-flex justify-content-end footer-chatbot">
+                <div class="d-flex align-items-center">
+                    <img src="img/feedback.png" alt="" style="height: 100px; width: auto;" class="ms-4" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                    <img src="img/chatbot.png" alt="" style="max-height: 200px; width: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content" style="background-color: white; color: black; border: none; border-radius: 20px;">
+                <div class="modal-header" style="justify-content: center; border: none;">
+                  <h2 class="modal-title mt-3 text-center text-dark" id="feedbackModalLabel">How would you rate your Kyusi Esports Community experience?</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; right: 15px;"></button>
+                </div>
+                <div class="modal-body" style="border: none;">
+                  <div class="row justify-content-center">
+                    <div class="col-12">
+                      <div class="d-flex justify-content-center gap-4 mb-4">
+                        <i class="fa-solid fa-face-angry fa-3x feedback-icon" data-rating="1" data-bs-toggle="tooltip" data-bs-placement="top" title="Very Dissatisfied" style="color: #FF4D4D; opacity: 0.7; cursor: pointer; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.2) rotate(-5deg)'; this.style.color='#FF0000';" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.color='#FF4D4D';"></i>
+                        <i class="fa-solid fa-face-frown fa-3x feedback-icon" data-rating="2" data-bs-toggle="tooltip" data-bs-placement="top" title="Dissatisfied" style="color: #FFA64D; opacity: 0.7; cursor: pointer; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.2) rotate(-3deg)'; this.style.color='#FF8C00';" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.color='#FFA64D';"></i>
+                        <i class="fa-solid fa-face-meh fa-3x feedback-icon" data-rating="3" data-bs-toggle="tooltip" data-bs-placement="top" title="Neutral" style="color: #FFD700; opacity: 0.7; cursor: pointer; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.2)'; this.style.color='#FFC000';" onmouseout="this.style.transform='scale(1)'; this.style.color='#FFD700';"></i>
+                        <i class="fa-solid fa-face-smile fa-3x feedback-icon" data-rating="4" data-bs-toggle="tooltip" data-bs-placement="top" title="Satisfied" style="color: #90EE90; opacity: 0.7; cursor: pointer; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.2) rotate(3deg)'; this.style.color='#32CD32';" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.color='#90EE90';"></i>
+                        <i class="fa-solid fa-face-grin-hearts fa-3x feedback-icon" data-rating="5" data-bs-toggle="tooltip" data-bs-placement="top" title="Very Satisfied" style="color: #FF69B4; opacity: 0.7; cursor: pointer; transition: all 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.2) rotate(5deg)'; this.style.color='#FF1493';" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.color='#FF69B4';"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer justify-content-end" style="border: none;">
+                  <button type="button" id="submitFeedback" class="btn btn-primary px-4 py-2" style="background-color: black; border: none; border-radius: 5px;">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Modal end-->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackImg = document.querySelector('.footer-chatbot img:first-child');
+            
+            // Create tooltip element
+            const tooltip = document.createElement('div');
+            tooltip.textContent = 'Provide a Feedback';
+            tooltip.style.position = 'absolute';
+            tooltip.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            tooltip.style.color = 'white';
+            tooltip.style.padding = '5px 10px';
+            tooltip.style.borderRadius = '5px';
+            tooltip.style.fontSize = '0.8rem';
+            tooltip.style.display = 'none';
+            tooltip.style.zIndex = '1000';
+            
+            // Position the tooltip
+            feedbackImg.parentElement.style.position = 'relative';
+            feedbackImg.parentElement.appendChild(tooltip);
+            
+            // Show tooltip on hover
+            feedbackImg.addEventListener('mouseenter', function() {
+                const rect = feedbackImg.getBoundingClientRect();
+                tooltip.style.top = `-${10}px`;
+                tooltip.style.left = `${(rect.width - tooltip.offsetWidth) / 2}px`;
+                tooltip.style.display = 'block';
+            });
+            
+            // Hide tooltip when mouse leaves
+            feedbackImg.addEventListener('mouseleave', function() {
+                tooltip.style.display = 'none';
+            });
+        });
+    </script>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Are you sure you want to logout?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#6B0000',
+                cancelButtonColor: '#7F7F7F',
+                confirmButtonText: 'Yes, logout',
+                background: '#ffffff',
+                color: '#000000',
+                iconColor: '#6B0000'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'logout.php';
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let selectedRating = 0;
+            const feedbackIcons = document.querySelectorAll('.feedback-icon');
+            const submitButton = document.getElementById('submitFeedback');
+            
+            // Initialize Bootstrap tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+            
+            // Handle rating selection
+            feedbackIcons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const rating = parseInt(this.dataset.rating);
+                    
+                    // Reset all icons to dim state and remove effects
+                    feedbackIcons.forEach(i => {
+                        i.style.opacity = '0.7';
+                        i.style.animation = '';
+                        i.classList.remove('selected');
+                        i.style.transform = 'scale(1)';
+                        i.style.filter = 'drop-shadow(0 0 2px rgba(0,0,0,0.1))';
+                    });
+                    
+                    // If clicking the same rating again, deselect it
+                    if (selectedRating === rating) {
+                        selectedRating = 0;
+                        return;
+                    }
+                    
+                    // Update selected rating and highlight the clicked icon
+                    selectedRating = rating;
+                    this.classList.add('selected');
+                    
+                    // Add glow effect based on the icon's color
+                    let glowColor;
+                    switch(rating) {
+                        case 1: glowColor = 'rgba(255,0,0,0.5)'; break;
+                        case 2: glowColor = 'rgba(255,140,0,0.5)'; break;
+                        case 3: glowColor = 'rgba(255,215,0,0.5)'; break;
+                        case 4: glowColor = 'rgba(50,205,50,0.5)'; break;
+                        case 5: glowColor = 'rgba(255,20,147,0.5)'; break;
+                    }
+                    this.style.filter = `drop-shadow(0 0 8px ${glowColor})`;
+                    
+                    // Add pulse animation
+                    this.style.animation = 'pulse 2s ease-in-out infinite';
+                });
+            });
+            
+            // Handle submit button click
+            submitButton.addEventListener('click', function() {
+                if (selectedRating === 0) {
+                    Swal.fire({
+                        title: 'Please Select a Rating',
+                        text: 'Click on one of the emoji faces to rate your experience.',
+                        icon: 'warning',
+                        confirmButtonColor: '#6B0000',
+                        background: '#ffffff',
+                        color: '#000000',
+                        iconColor: '#6B0000'
+                    });
+                    return;
+                }
+                
+                // Show success message
+                Swal.fire({
+                    title: 'Thank You!',
+                    text: 'Your feedback has been submitted successfully.',
+                    icon: 'success',
+                    confirmButtonColor: '#6B0000',
+                    background: '#ffffff',
+                    color: '#000000',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    showConfirmButton: false
+                }).then(() => {
+                    // Close the modal
+                    const feedbackModal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
+                    feedbackModal.hide();
+                    
+                    // Reset the rating after modal closes
+                    setTimeout(() => {
+                        selectedRating = 0;
+                        feedbackIcons.forEach(i => {
+                            i.style.opacity = '0.7';
+                            i.classList.remove('selected');
+                            i.style.transform = 'scale(1)';
+                            i.style.filter = 'drop-shadow(0 0 2px rgba(0,0,0,0.1))';
+                            i.style.animation = '';
+                        });
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
