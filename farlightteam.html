@@ -36,6 +36,7 @@
         <!--Sweet Alert-->
         <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         /* Fix for modal overflow */
         .swal2-icon.swal2-warning {
@@ -110,7 +111,7 @@
             padding: 0;
         }
 
-        @keyframes pulse {
+@keyframes pulse {
     0% {
         transform: scale(1.1);
     }
@@ -141,7 +142,7 @@
     opacity: 1 !important;
     transform: scale(1.1);
     filter: drop-shadow(0 0 8px rgba(255,215,0,0.5));
-}
+}ry-satisfied:hover, .very-satisfied.selected { color: #FF1493; }
 
         .container-fluid {
             width: 100% !important;
@@ -187,8 +188,8 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0 align-items-center">
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="about.html" class="nav-item nav-link">ABOUT US</a>
-                <a href="COMMUNITY.HTML" class="nav-item nav-link">COMMUNITY</a>
-                <a href="TEAMS.html" class="nav-item nav-link active">TEAMS</a>
+                <a href="community.html" class="nav-item nav-link">COMMUNITY</a>
+                <a href="teams.html" class="nav-item nav-link active">TEAMS</a>
                 <a href="activities.html" class="nav-item nav-link">ACTIVITIES</a>
                 <a href="merch.html" class="nav-item nav-link">MERCH</a>
             </div>
@@ -221,7 +222,7 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-7 text-center">
                 <div class="section-title position-relative text-center mx-auto "  style="max-width: 600px;">
-                    <h1 class="display-4 text-uppercase text-white animated slideInDown">MOBILE LEGENDS</h1>
+                    <h1 class="display-4 text-uppercase text-white animated slideInDown">FARLIGHT</h1>
                 </div>
             </div>
         </div>
@@ -317,7 +318,7 @@
     <div class="row gx-5 justify-content-center">
         <div class="col-lg-7 text-center">
             <div class="section-title position-relative text-center mx-auto "  style="max-width: 600px;">
-                <h1 class="display-4 text-uppercase text-white animated slideInDown">MOBILE LEGENDS TEAM CLIPS</h1>
+                <h1 class="display-4 text-uppercase text-white animated slideInDown">FARLIGHT TEAM CLIPS</h1>
             </div>
         </div>
     </div>
@@ -522,104 +523,105 @@
             });
         });
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let selectedRating = 0;
-            const feedbackIcons = document.querySelectorAll('.feedback-icon');
-            const submitButton = document.getElementById('submitFeedback');
-            
-            // Initialize Bootstrap tooltips
-            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
-            });
-            
-            // Handle rating selection
-            feedbackIcons.forEach(icon => {
-                icon.addEventListener('click', function() {
-                    const rating = parseInt(this.dataset.rating);
-                    
-                    // Reset all icons to dim state and remove effects
-                    feedbackIcons.forEach(i => {
-                        i.style.opacity = '0.7';
-                        i.style.animation = '';
-                        i.classList.remove('selected');
-                        i.style.transform = 'scale(1)';
-                        i.style.filter = 'drop-shadow(0 0 2px rgba(0,0,0,0.1))';
-                    });
-                    
-                    // If clicking the same rating again, deselect it
-                    if (selectedRating === rating) {
-                        selectedRating = 0;
-                        return;
-                    }
-                    
-                    // Update selected rating and highlight the clicked icon
-                    selectedRating = rating;
-                    this.classList.add('selected');
-                    
-                    // Add glow effect based on the icon's color
-                    let glowColor;
-                    switch(rating) {
-                        case 1: glowColor = 'rgba(255,0,0,0.5)'; break;
-                        case 2: glowColor = 'rgba(255,140,0,0.5)'; break;
-                        case 3: glowColor = 'rgba(255,215,0,0.5)'; break;
-                        case 4: glowColor = 'rgba(50,205,50,0.5)'; break;
-                        case 5: glowColor = 'rgba(255,20,147,0.5)'; break;
-                    }
-                    this.style.filter = `drop-shadow(0 0 8px ${glowColor})`;
-                    
-                    // Add pulse animation
-                    this.style.animation = 'pulse 2s ease-in-out infinite';
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let selectedRating = 0;
+        const feedbackIcons = document.querySelectorAll('.feedback-icon');
+        const submitButton = document.getElementById('submitFeedback');
+        
+        // Initialize Bootstrap tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // Handle rating selection
+        feedbackIcons.forEach(icon => {
+            icon.addEventListener('click', function() {
+                const rating = parseInt(this.dataset.rating);
+                
+                // Reset all icons to dim state and remove effects
+                feedbackIcons.forEach(i => {
+                    i.style.opacity = '0.7';
+                    i.style.animation = '';
+                    i.classList.remove('selected');
+                    i.style.transform = 'scale(1)';
+                    i.style.filter = 'drop-shadow(0 0 2px rgba(0,0,0,0.1))';
                 });
-            });
-            
-            // Handle submit button click
-            submitButton.addEventListener('click', function() {
-                if (selectedRating === 0) {
-                    Swal.fire({
-                        title: 'Please Select a Rating',
-                        text: 'Click on one of the emoji faces to rate your experience.',
-                        icon: 'warning',
-                        confirmButtonColor: '#6B0000',
-                        background: '#ffffff',
-                        color: '#000000',
-                        iconColor: '#6B0000'
-                    });
+                
+                // If clicking the same rating again, deselect it
+                if (selectedRating === rating) {
+                    selectedRating = 0;
                     return;
                 }
                 
-                // Show success message
+                // Update selected rating and highlight the clicked icon
+                selectedRating = rating;
+                this.classList.add('selected');
+                
+                // Add glow effect based on the icon's color
+                let glowColor;
+                switch(rating) {
+                    case 1: glowColor = 'rgba(255,0,0,0.5)'; break;
+                    case 2: glowColor = 'rgba(255,140,0,0.5)'; break;
+                    case 3: glowColor = 'rgba(255,215,0,0.5)'; break;
+                    case 4: glowColor = 'rgba(50,205,50,0.5)'; break;
+                    case 5: glowColor = 'rgba(255,20,147,0.5)'; break;
+                }
+                this.style.filter = `drop-shadow(0 0 8px ${glowColor})`;
+                
+                // Add pulse animation
+                this.style.animation = 'pulse 2s ease-in-out infinite';
+            });
+        });
+        
+        // Handle submit button click
+        submitButton.addEventListener('click', function() {
+            if (selectedRating === 0) {
                 Swal.fire({
-                    title: 'Thank You!',
-                    text: 'Your feedback has been submitted successfully.',
-                    icon: 'success',
+                    title: 'Please Select a Rating',
+                    text: 'Click on one of the emoji faces to rate your experience.',
+                    icon: 'warning',
                     confirmButtonColor: '#6B0000',
                     background: '#ffffff',
                     color: '#000000',
-                    timer: 2000,
-                    timerProgressBar: true,
-                    showConfirmButton: false
-                }).then(() => {
-                    // Close the modal
-                    const feedbackModal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
-                    feedbackModal.hide();
-                    
-                    // Reset the rating after modal closes
-                    setTimeout(() => {
-                        selectedRating = 0;
-                        feedbackIcons.forEach(i => {
-                            i.style.opacity = '0.7';
-                            i.classList.remove('selected');
-                            i.style.transform = 'scale(1)';
-                            i.style.filter = 'drop-shadow(0 0 2px rgba(0,0,0,0.1))';
-                            i.style.animation = '';
-                        });
-                    }, 200);
+                    iconColor: '#6B0000'
                 });
+                return;
+            }
+            
+            // Show success message
+            Swal.fire({
+                title: 'Thank You!',
+                text: 'Your feedback has been submitted successfully.',
+                icon: 'success',
+                confirmButtonColor: '#6B0000',
+                background: '#ffffff',
+                color: '#000000',
+                timer: 2000,
+                timerProgressBar: true,
+                showConfirmButton: false
+            }).then(() => {
+                // Close the modal
+                const feedbackModal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
+                feedbackModal.hide();
+                
+                // Reset the rating after modal closes
+                setTimeout(() => {
+                    selectedRating = 0;
+                    feedbackIcons.forEach(i => {
+                        i.style.opacity = '0.7';
+                        i.classList.remove('selected');
+                        i.style.transform = 'scale(1)';
+                        i.style.filter = 'drop-shadow(0 0 2px rgba(0,0,0,0.1))';
+                        i.style.animation = '';
+                    });
+                }, 200);
             });
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>
